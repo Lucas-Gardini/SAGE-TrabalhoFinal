@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SAGE.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <VerticalStackLayout
+            x:Name="AuthPage"
+            Padding="30"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand">
+
+            <Label
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="SAGE - Sistema Acadêmico de Gestão Educacional"
+                TextColor="Black" />
+
+            <Label
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Login"
+                TextColor="Black" />
+
+            <Entry
+                x:Name="usernameEntry"
+                Margin="0,20,0,10"
+                FontSize="18"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Usuário" />
+
+            <Entry
+                x:Name="passwordEntry"
+                Margin="0,10,0,0"
+                FontSize="18"
+                HorizontalOptions="FillAndExpand"
+                IsPassword="True"
+                Placeholder="Senha" />
+
+            <HorizontalStackLayout Margin="0,5,0,10">
+                <Label Text="Não tem uma conta?" TextDecorations="Underline" />
+            </HorizontalStackLayout>
+
+            <Button
+                x:Name="AuthButton"
+                BackgroundColor="Blue"
+                Clicked="AuthButton_Clicked"
+                FontSize="18"
+                HorizontalOptions="FillAndExpand"
+                Text="Entrar"
+                TextColor="White" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
