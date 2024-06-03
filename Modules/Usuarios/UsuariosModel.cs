@@ -8,6 +8,9 @@ namespace SAGE.Modules.Usuarios
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
+        [Unique]
+        public string? Identificador { get; set; } = null;
+
         [MaxLength(100), NotNull]
         public string Nome { get; set; } = "";
 

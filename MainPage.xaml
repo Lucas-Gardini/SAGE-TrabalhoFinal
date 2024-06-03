@@ -5,13 +5,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasBackButton="False"
     NavigationPage.HasNavigationBar="False">
-    <ScrollView>
-        <VerticalStackLayout
+    <Grid>
+
+        <!--  Background Image  -->
+        <Image
+            Aspect="AspectFill"
+            HorizontalOptions="FillAndExpand"
+            Source="wave_background.png"
+            VerticalOptions="FillAndExpand" />
+
+        <StackLayout
             x:Name="AuthPage"
-            Padding="30"
+            Padding="20"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="CenterAndExpand">
-
             <Label
                 FontSize="18"
                 HorizontalOptions="Center"
@@ -25,33 +32,42 @@
                 TextColor="Black" />
 
             <Entry
-                x:Name="usernameEntry"
+                x:Name="UsernameEntry"
                 Margin="0,20,0,10"
                 FontSize="18"
                 HorizontalOptions="FillAndExpand"
                 Placeholder="Usuário" />
 
             <Entry
-                x:Name="passwordEntry"
-                Margin="0,10,0,0"
+                x:Name="PasswordEntry"
+                Margin="0,10,0,15"
                 FontSize="18"
                 HorizontalOptions="FillAndExpand"
                 IsPassword="True"
                 Placeholder="Senha" />
 
-            <HorizontalStackLayout Margin="0,5,0,10">
+            <!--<HorizontalStackLayout Margin="0,5,0,10">
                 <Label Text="Não tem uma conta?" TextDecorations="Underline" />
-            </HorizontalStackLayout>
+            </HorizontalStackLayout>-->
 
             <Button
                 x:Name="AuthButton"
-                BackgroundColor="Blue"
+                Margin="0,0,0,10"
                 Clicked="AuthButton_Clicked"
                 FontSize="18"
                 HorizontalOptions="FillAndExpand"
                 Text="Entrar"
                 TextColor="White" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+            <Button
+                x:Name="ClearDBButton"
+                BackgroundColor="red"
+                Clicked="ClearDBButton_Clicked"
+                FontSize="18"
+                HorizontalOptions="FillAndExpand"
+                Text="Limpar Banco de Dados"
+                TextColor="White" />
+
+        </StackLayout>
+    </Grid>
 </ContentPage>
