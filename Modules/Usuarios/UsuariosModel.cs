@@ -17,4 +17,23 @@ namespace SAGE.Modules.Usuarios
         [MaxLength(100), NotNull]
         public string Senha { get; set; } = "";
     }
+
+    [Table("sessoes")]
+    public class Sessao
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+
+        [Unique]
+        public string? Token { get; set; } = null;
+
+        [NotNull]
+        public int UsuarioId { get; set; }
+
+        [NotNull]
+        public string DataCriacao { get; set; } = "";
+
+        [NotNull]
+        public string DataExpiracao { get; set; } = "";
+    }
 }

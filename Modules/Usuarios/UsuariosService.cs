@@ -9,14 +9,19 @@ namespace SAGE.Modules.Usuarios
     {
         // Usuário atualmente logado
         private static Usuario usuarioLogado = new();
+        private static string token = "TokenInválido";
+
+        // Model de sessões
+        private readonly GenericService<Sessao> sessoesService = new();
 
         /// <summary>
         /// Inicializa uma nova instância da classe <see cref="UsuariosService"/>.
         /// </summary>
-        public UsuariosService(): base()
+        public UsuariosService() : base()
         {
             // Hash da senha antes de inserir no banco de dados
-            base.BeforeInsert = (entity) => {
+            base.BeforeInsert = (entity) =>
+            {
                 entity.Identificador = GerarNovoIdentificador();
                 entity.Senha = BCrypt.Net.BCrypt.HashPassword(entity.Senha);
             };
@@ -69,6 +74,62 @@ namespace SAGE.Modules.Usuarios
             }
             return new Usuario();
         }
+
+        /// <summary>
+        /// Realiza o login de um usuário.
+        /// </summary>
+        /// <param name="identificador">Identificador do usuário.</param>
+        /// <param name="senha">Senha do usuário.</param>
+        /// <returns>Retorna um objeto <see cref="Usuario"/> se o login for bem-sucedido, ou um novo objeto <see cref="Usuario"/> vazio se falhar.</returns>
+        public Usuario RealizarLogin(string identificador, string senha)
+        {
+            // Valida a senha do usuário
+            var usuario = ValidarSenha(identificador, senha);
+
+            // Verifica se o usuário não foi encontrado
+            if (usuario.Id == 0)
+                return new Usuario();
+
+            // Cria uma nova sessão para o usuário
+            var sessao = new Sessao()
+            {
+                Token = BCrypt.Net.BCrypt.HashPassword(usuario.Identificador + DateTime.Now.ToString()),
+                UsuarioId = usuario.Id,
+                DataCriacao = DateTime.Now.ToString(),
+                DataExpiracao = DateTime.Now.AddHours(1).ToString(),
+            };
+
+            // Insere a sessão no banco de dados
+            sessoesService.InsertOne(sessao);
+
+            // Armazena o token da sessão criada
+            token = sessao.Token!;
+
+            // Retorna o usuário autenticado
+            return usuario;
+        }
+
+        /// <summary>
+        /// Valida a sessão atual do usuário.
+        /// </summary>
+        /// <returns>Retorna o token da sessão se for válida, ou uma string vazia se a sessão for inválida ou expirada.</returns>
+        public string ValidarSessao()
+        {
+            // Obtém a sessão correspondente ao token armazenado
+            var sessao = sessoesService.GetOne(s => s.Token == token);
+
+            // Verifica se a sessão não foi encontrada
+            if (sessao == null)
+                return "SEM";
+
+            // Verifica se a sessão está expirada
+            if (DateTime.Parse(sessao.DataExpiracao) < DateTime.Now)
+                return "EXPIRADA";
+
+            // Retorna o token da sessão válida
+            return sessao.Token!;
+        }
+
 
         /// <summary>
         /// Gera um novo identificador incrementando o último identificador existente.

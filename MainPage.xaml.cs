@@ -8,6 +8,9 @@ namespace SAGE
     /// </summary>
     public partial class MainPage : ContentPage
     {
+        // Caminho onde fica salvo o arquivo de lembrar usuário
+        public readonly string UsuarioCaminho = Path.Combine(FileSystem.AppDataDirectory, "usuario.txt");
+
         // Serviço de usuários para validação e outras operações
         private readonly UsuariosService _usuariosService = new();
 
@@ -17,6 +20,10 @@ namespace SAGE
         public MainPage()
         {
             InitializeComponent();
+
+            // Lê o arquivo de lembrar, caso exista e preenche o input de usuário
+            if (File.Exists(UsuarioCaminho))
+                UsernameEntry.Text = File.ReadAllText(UsuarioCaminho);
         }
 
         /// <summary>
@@ -44,11 +51,17 @@ namespace SAGE
             }
 
             // Valida o usuário e a senha
-            var usuarioAutenticado = _usuariosService.ValidarSenha(usuario, senha);
+            var usuarioAutenticado = _usuariosService.RealizarLogin(usuario, senha);
 
             // Verifica se a autenticação foi bem-sucedida
             if (usuarioAutenticado.Nome != "")
             {
+                // Se o usuário marcou para lembrar dele, salvamos seu usuário em um arquivo na pasta do projeto
+                if (RememberMeCheckBox.IsChecked)
+                    File.WriteAllText(UsuarioCaminho, usuario);
+                else
+                    File.Delete(UsuarioCaminho);
+
                 await DisplayAlert("Sucesso", $"Bem vindo(a) de volta {usuarioAutenticado.Nome}", "OK");
                 await Navigation.PushAsync(new IndexPage());
             } else
