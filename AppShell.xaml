@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SAGE.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SAGE"
+    xmlns:pages="clr-namespace:SAGE.Pages"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False"
+    Shell.FlyoutBehavior="Disabled">
+    <TabBar>
+        <Tab Title="Início" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
+        </Tab>
+
+        <Tab Title="Disciplinas" Icon="graduation.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
+        </Tab>
+
+        <Tab
+            x:Name="UsersTab"
+            Title="Usuários"
+            Icon="team.png"
+            IsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate pages:UsuariosPage}" />
+        </Tab>
+
+        <Tab Title="Configurações" Icon="settings.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
+        </Tab>
+
+    </TabBar>
+</Shell>

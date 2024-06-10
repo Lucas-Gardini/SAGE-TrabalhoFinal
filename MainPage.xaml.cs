@@ -23,7 +23,10 @@ namespace SAGE
 
             // Lê o arquivo de lembrar, caso exista e preenche o input de usuário
             if (File.Exists(UsuarioCaminho))
+            {
+                RememberMeCheckBox.IsChecked = true;
                 UsernameEntry.Text = File.ReadAllText(UsuarioCaminho);
+            }
         }
 
         /// <summary>
@@ -63,7 +66,7 @@ namespace SAGE
                     File.Delete(UsuarioCaminho);
 
                 await DisplayAlert("Sucesso", $"Bem vindo(a) de volta {usuarioAutenticado.Nome}", "OK");
-                await Navigation.PushAsync(new IndexPage());
+                await Navigation.PushAsync(new AppShell()); // Navega para a página contendo a navegação principal
             } else
             {
                 await DisplayAlert("Erro", "Usuário ou senha inválidos", "OK");

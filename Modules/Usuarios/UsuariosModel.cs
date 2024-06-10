@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using System.ComponentModel;
 
 namespace SAGE.Modules.Usuarios
 {
@@ -16,6 +17,9 @@ namespace SAGE.Modules.Usuarios
 
         [MaxLength(100), NotNull]
         public string Senha { get; set; } = "";
+
+        [DefaultValue(false)]
+        public bool IsAdmin { get; set; } = false;
     }
 
     [Table("sessoes")]

@@ -41,10 +41,12 @@
             <Entry
                 x:Name="PasswordEntry"
                 Margin="0,10,0,15"
+                Completed="AuthButton_Clicked"
                 FontSize="18"
                 HorizontalOptions="FillAndExpand"
                 IsPassword="True"
-                Placeholder="Senha" />
+                Placeholder="Senha"
+                ReturnType="Done" />
 
             <HorizontalStackLayout HorizontalOptions="FillAndExpand">
                 <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />

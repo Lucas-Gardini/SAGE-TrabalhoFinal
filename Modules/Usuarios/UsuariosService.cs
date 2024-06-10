@@ -46,6 +46,7 @@ namespace SAGE.Modules.Usuarios
                 Identificador = "000000",
                 Nome = "Master",
                 Senha = BCrypt.Net.BCrypt.HashPassword("123456"),
+                IsAdmin = true
             });
         }
 

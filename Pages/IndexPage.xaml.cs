@@ -1,8 +1,10 @@
+using SAGE.Modules.Usuarios;
+
 namespace SAGE.Pages;
 
 public partial class IndexPage : ContentPage
 {
-	public IndexPage()
+    public IndexPage()
 	{
 		InitializeComponent();
 
