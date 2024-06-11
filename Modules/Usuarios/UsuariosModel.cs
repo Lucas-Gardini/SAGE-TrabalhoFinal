@@ -12,7 +12,7 @@ namespace SAGE.Modules.Usuarios
         [Unique]
         public string? Identificador { get; set; } = null;
 
-        [MaxLength(100), NotNull]
+        [MaxLength(100), NotNull, Unique]
         public string Nome { get; set; } = "";
 
         [MaxLength(100), NotNull]

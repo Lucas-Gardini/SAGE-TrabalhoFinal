@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="SAGE.Pages.DisciplinasPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:extension="[extension ]clr-namespace:SAGE.Extension"
+  NavigationPage.HasBackButton="False">
+  <Grid>
+    <!--  Layout principal da página  -->
+    <VerticalStackLayout Margin="0,0,0,75">
+      <Label
+        Margin="0,30,0,50"
+        FontSize="Large"
+        HorizontalOptions="Center"
+        Text="Lista de Disciplinas"
+        VerticalOptions="Center" />
+
+      <!--  Cabeçalhos das Colunas  -->
+      <Grid
+        Padding="10"
+        ColumnDefinitions="*,60,*,50,50"
+        ColumnSpacing="5">
+        <Label
+          Grid.Column="0"
+          FontAttributes="Bold"
+          Text="Nome" />
+        <Label
+          Grid.Column="1"
+          FontAttributes="Bold"
+          Text="Sigla" />
+        <Label
+          Grid.Column="2"
+          FontAttributes="Bold"
+          Text="Professor" />
+        <Label Grid.Column="3" />
+        <Label Grid.Column="4" />
+      </Grid>
+
+      <CollectionView
+        x:Name="DisciplinasCollectionView"
+        ItemsSource="{Binding Disciplinas}"
+        VerticalScrollBarVisibility="Always">
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <Grid
+              Padding="10"
+              ColumnDefinitions="*,60,*,50,50"
+              ColumnSpacing="5">
+              <Label
+                Grid.Column="0"
+                MaxLines="1"
+                Text="{Binding Nome}"
+                VerticalOptions="Center" />
+              <Label
+                Grid.Column="1"
+                Text="{Binding Sigla}"
+                VerticalOptions="Center" />
+              <Label
+                x:Name="NomeProfessor"
+                Grid.Column="2"
+                Loaded="Label_Loaded"
+                Text="{Binding ProfessorId}"
+                VerticalOptions="Center" />
+              <Button
+                Grid.Column="3"
+                BackgroundColor="{DynamicResource Secondary}"
+                Clicked="OnEditItem_Clicked"
+                CommandParameter="{Binding Id}">
+                <Button.ImageSource>
+                  <FileImageSource File="pencil.png" />
+                </Button.ImageSource>
+              </Button>
+              <Button
+                Grid.Column="4"
+                BackgroundColor="{DynamicResource Danger}"
+                Clicked="OnDeleteItem_Clicked"
+                CommandParameter="{Binding Id}">
+                <Button.ImageSource>
+                  <FileImageSource File="trash.png" />
+                </Button.ImageSource>
+              </Button>
+            </Grid>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </VerticalStackLayout>
+
+    <!--  Botão Flutuante com ícone  -->
+    <Button
+      x:Name="FabButton"
+      Margin="10"
+      Clicked="FabButton_Clicked"
+      CornerRadius="30"
+      HeightRequest="50"
+      HorizontalOptions="End"
+      VerticalOptions="End"
+      WidthRequest="50">
+      <Button.ImageSource>
+        <FileImageSource File="add.png" />
+      </Button.ImageSource>
+    </Button>
+  </Grid>
+</ContentPage>

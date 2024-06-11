@@ -15,7 +15,7 @@
         </Tab>
 
         <Tab x:Name="DisciTab" Title="{extension:TranslateExtansion Key=tabDisciplines}" Icon="graduation.png">
-            <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
+            <ShellContent ContentTemplate="{DataTemplate pages:DisciplinasPage}" />
         </Tab>
 
         <Tab
