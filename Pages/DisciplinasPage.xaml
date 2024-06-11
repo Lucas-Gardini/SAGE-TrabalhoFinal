@@ -56,9 +56,8 @@
                 Text="{Binding Sigla}"
                 VerticalOptions="Center" />
               <Label
-                x:Name="NomeProfessor"
                 Grid.Column="2"
-                Loaded="Label_Loaded"
+                Loaded="CarregaNomeProfessor"
                 Text="{Binding ProfessorId}"
                 VerticalOptions="Center" />
               <Button

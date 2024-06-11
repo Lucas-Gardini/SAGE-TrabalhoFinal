@@ -79,7 +79,11 @@ public partial class DisciplinasPage : ContentPage
 		Navigation.PushModalAsync(modal); // Abre a página modal
 	}
 
-	private void Label_Loaded(object sender, EventArgs e)
+	/// <summary>
+	/// Método acionado quando a label com id do professor é carregada
+	/// e a transforma no nome do professor.
+	/// </summary>
+	private void CarregaNomeProfessor(object sender, EventArgs e)
 	{
 		var label = sender as Label;
 
