@@ -61,6 +61,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Sigla.
+        /// </summary>
+        internal static string acronym {
+            get {
+                return ResourceManager.GetString("acronym", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Administrador.
         /// </summary>
         internal static string admin {
@@ -97,11 +106,29 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Criar/Editar Disciplina.
+        /// </summary>
+        internal static string createAndEditDisc {
+            get {
+                return ResourceManager.GetString("createAndEditDisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Criar/Editar Usuário.
         /// </summary>
         internal static string createAndEditUser {
             get {
                 return ResourceManager.GetString("createAndEditUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Lista de Disciplinas.
+        /// </summary>
+        internal static string disciplinesList {
+            get {
+                return ResourceManager.GetString("disciplinesList", resourceCulture);
             }
         }
         
@@ -201,6 +228,15 @@ namespace SAGE.Resources.i18n {
         internal static string tabUsers {
             get {
                 return ResourceManager.GetString("tabUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Professor.
+        /// </summary>
+        internal static string teacher {
+            get {
+                return ResourceManager.GetString("teacher", resourceCulture);
             }
         }
         

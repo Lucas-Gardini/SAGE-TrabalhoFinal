@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="acronym" xml:space="preserve">
+    <value>Acronym</value>
+  </data>
   <data name="admin" xml:space="preserve">
     <value>Administrator</value>
   </data>
@@ -129,8 +132,14 @@
   <data name="config" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="createAndEditDisc" xml:space="preserve">
+    <value>Create/Edit Discipline</value>
+  </data>
   <data name="createAndEditUser" xml:space="preserve">
     <value>Create/Edit User</value>
+  </data>
+  <data name="disciplinesList" xml:space="preserve">
+    <value>List of Disciplines</value>
   </data>
   <data name="en" xml:space="preserve">
     <value>English</value>
@@ -164,6 +173,9 @@
   </data>
   <data name="tabUsers" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="teacher" xml:space="preserve">
+    <value>Teacher</value>
   </data>
   <data name="user" xml:space="preserve">
     <value>User</value>

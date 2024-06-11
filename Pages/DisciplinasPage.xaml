@@ -3,8 +3,9 @@
   x:Class="SAGE.Pages.DisciplinasPage"
   xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:extension="[extension ]clr-namespace:SAGE.Extension"
-  NavigationPage.HasBackButton="False">
+  xmlns:extension="clr-namespace:SAGE.Extension"
+  NavigationPage.HasBackButton="False"
+  BackgroundColor="{DynamicResource BackgroundColor}">
   <Grid>
     <!--  Layout principal da página  -->
     <VerticalStackLayout Margin="0,0,0,75">
@@ -12,7 +13,8 @@
         Margin="0,30,0,50"
         FontSize="Large"
         HorizontalOptions="Center"
-        Text="Lista de Disciplinas"
+        Text="{extension:TranslateExtansion Key=disciplinesList}"
+        TextColor="{DynamicResource TextColor}"
         VerticalOptions="Center" />
 
       <!--  Cabeçalhos das Colunas  -->
@@ -22,16 +24,16 @@
         ColumnSpacing="5">
         <Label
           Grid.Column="0"
-          FontAttributes="Bold"
-          Text="Nome" />
+          TextColor="{DynamicResource TextColor}"
+          Text="{extension:TranslateExtansion Key=name}" />
         <Label
           Grid.Column="1"
-          FontAttributes="Bold"
-          Text="Sigla" />
+          TextColor="{DynamicResource TextColor}"
+          Text="{extension:TranslateExtansion Key=acronym}" />
         <Label
           Grid.Column="2"
-          FontAttributes="Bold"
-          Text="Professor" />
+          TextColor="{DynamicResource TextColor}"
+          Text="{extension:TranslateExtansion Key=teacher}" />
         <Label Grid.Column="3" />
         <Label Grid.Column="4" />
       </Grid>
@@ -50,15 +52,18 @@
                 Grid.Column="0"
                 MaxLines="1"
                 Text="{Binding Nome}"
+                TextColor="{DynamicResource TextColor}"
                 VerticalOptions="Center" />
               <Label
                 Grid.Column="1"
                 Text="{Binding Sigla}"
+                TextColor="{DynamicResource TextColor}"
                 VerticalOptions="Center" />
               <Label
                 Grid.Column="2"
                 Loaded="CarregaNomeProfessor"
                 Text="{Binding ProfessorId}"
+                TextColor="{DynamicResource TextColor}"
                 VerticalOptions="Center" />
               <Button
                 Grid.Column="3"

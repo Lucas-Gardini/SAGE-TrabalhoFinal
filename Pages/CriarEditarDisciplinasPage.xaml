@@ -3,13 +3,17 @@
   x:Class="SAGE.Pages.CriarEditarDisciplinasPage"
   xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  NavigationPage.HasBackButton="False">
+  xmlns:extension="clr-namespace:SAGE.Extension"
+  NavigationPage.HasBackButton="False"
+  BackgroundColor="{DynamicResource BackgroundColor}">
   <Grid>
     <!--  Botão Flutuante com ícone  -->
     <Button
       x:Name="CloseButton"
       Margin="10"
-      BackgroundColor="White"
+      WidthRequest="50"
+      HeightRequest="50"
+      BackgroundColor="{DynamicResource Danger}"
       Clicked="CloseButton_Clicked"
       CornerRadius="30"
       HorizontalOptions="End"
@@ -21,34 +25,48 @@
     </Button>
 
     <!--  Layout principal da página  -->
-    <VerticalStackLayout Padding="20" Spacing="20">
+    <VerticalStackLayout Margin="0, 50, 0, 0" Padding="20" Spacing="20">
       <Label
-        FontSize="Large"
+        FontSize="20"
         HorizontalOptions="Center"
-        Text="Criar/Editar Disciplina" />
+        TextColor="{DynamicResource TextColor}"
+        Text="{extension:TranslateExtansion Key=createAndEditDisc}" />
 
       <!--  Nome  -->
-      <VerticalStackLayout>
-        <Label Text="Nome" VerticalOptions="Center" />
+      <VerticalStackLayout Spacing="10">
+        <Label 
+            Text="{extension:TranslateExtansion Key=name}" 
+            VerticalOptions="Center" 
+            TextColor="{DynamicResource TextColor}"/>
         <Entry
           x:Name="NomeEntry"
           Placeholder="ex: Matemática"
+          PlaceholderColor="{DynamicResource PlaceholderColor}"
+          BackgroundColor="{DynamicResource EntryBackgroundColor}"
           VerticalOptions="Center" />
       </VerticalStackLayout>
 
       <!--  Sigla  -->
-      <VerticalStackLayout>
-        <Label Text="Sigla" VerticalOptions="Center" />
+            <VerticalStackLayout Spacing="10">
+        <Label 
+            Text="{extension:TranslateExtansion Key=acronym}" 
+            VerticalOptions="Center" 
+            TextColor="{DynamicResource TextColor}"/>
         <Entry
           x:Name="SiglaEntry"
           Placeholder="ex: MAT"
+          PlaceholderColor="{DynamicResource PlaceholderColor}"
+          BackgroundColor="{DynamicResource EntryBackgroundColor}"
           VerticalOptions="Center" />
       </VerticalStackLayout>
 
       <!--  Professor  -->
-      <VerticalStackLayout>
-        <Label Text="Professor" VerticalOptions="Center" />
-        <Picker x:Name="ProfessoresPicker">
+            <VerticalStackLayout Spacing="10">
+        <Label 
+            Text="{extension:TranslateExtansion Key=teacher}" 
+            VerticalOptions="Center" 
+            TextColor="{DynamicResource TextColor}"/>
+        <Picker x:Name="ProfessoresPicker" TextColor="White" BackgroundColor="{DynamicResource EntryBackgroundColor}">
           <Picker.ItemsSource>
             <x:Array Type="{x:Type x:String}" />
           </Picker.ItemsSource>
@@ -56,8 +74,8 @@
       </VerticalStackLayout>
 
       <!--  Botões de Ação  -->
-      <HorizontalStackLayout HorizontalOptions="End" VerticalOptions="EndAndExpand">
-        <Button Clicked="OnSaveClicked" Text="Salvar" />
+      <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+        <Button Clicked="OnSaveClicked" Text="{extension:TranslateExtansion Key=save}" TextColor="White"/>
       </HorizontalStackLayout>
     </VerticalStackLayout>
   </Grid>
