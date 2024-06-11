@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SAGE.Pages.CriarEditarUsuariosPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasBackButton="False">
+    <Grid>
+        <!--  Botão Flutuante com ícone  -->
+        <Button
+            x:Name="CloseButton"
+            Margin="10"
+            BackgroundColor="White"
+            Clicked="CloseButton_Clicked"
+            CornerRadius="30"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            ZIndex="9">
+            <Button.ImageSource>
+                <FileImageSource File="x.png" />
+            </Button.ImageSource>
+        </Button>
+
+        <!--  Layout principal da página  -->
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Criar/Editar Usuário" />
+
+            <!--  Identificador  -->
+            <!--<VerticalStackLayout>
+                <Label Text="Identificador" VerticalOptions="Center" />
+                <Entry
+                    x:Name="IdentificadorEntry"
+                    Placeholder="ex: 3014444"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>-->
+
+            <!--  Nome  -->
+            <VerticalStackLayout>
+                <Label Text="Nome" VerticalOptions="Center" />
+                <Entry
+                    x:Name="NomeEntry"
+                    Placeholder="ex: Lucas Dias"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!--  Senha  -->
+            <VerticalStackLayout>
+                <Label Text="Senha" VerticalOptions="Center" />
+                <Entry
+                    x:Name="SenhaEntry"
+                    IsPassword="True"
+                    Placeholder="******"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!--  Administrador  -->
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="20">
+                <Label Text="Administrador: " VerticalOptions="Center" />
+                <Switch x:Name="IsAdminSwitch" VerticalOptions="Center" />
+            </StackLayout>
+
+            <!--  Botões de Ação  -->
+            <HorizontalStackLayout HorizontalOptions="End" VerticalOptions="EndAndExpand">
+                <Button Clicked="OnSaveClicked" Text="Salvar" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

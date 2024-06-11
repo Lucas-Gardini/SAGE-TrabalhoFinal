@@ -3,29 +3,94 @@
     x:Class="SAGE.Pages.UsuariosPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="UsuariosPage">
-    <VerticalStackLayout>
-        <Label
-            FontSize="Large"
-            HorizontalOptions="Center"
-            Text="Lista de Usuários"
-            VerticalOptions="Center" />
+    NavigationPage.HasBackButton="False">
+    <Grid>
+        <!--  Layout principal da página  -->
+        <VerticalStackLayout Margin="0,0,0,75">
+            <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Lista de Usuários"
+                VerticalOptions="Center" />
 
-        <CollectionView x:Name="UsuariosCollectionView" ItemsSource="{Binding Usuarios}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="{Binding Nome}" />
-                        <Label Grid.Column="1" Text="{Binding Identificador}" />
-                        <Label Grid.Column="2" Text="{Binding IsAdmin, StringFormat='Admin: {0}'}" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+            <!--  Cabeçalhos das Colunas  -->
+            <Grid
+                Padding="10"
+                ColumnDefinitions="*,*,140,50,50"
+                ColumnSpacing="5">
+                <Label
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    Text="Nome" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="Identificador" />
+                <Label
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    Text="Administrador" />
+                <Label Grid.Column="3" />
+                <Label Grid.Column="4" />
+            </Grid>
+
+            <CollectionView
+                x:Name="UsuariosCollectionView"
+                ItemsSource="{Binding Usuarios}"
+                VerticalScrollBarVisibility="Always">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="10"
+                            ColumnDefinitions="*,*,140,50,50"
+                            ColumnSpacing="5">
+                            <Label
+                                Grid.Column="0"
+                                Text="{Binding Nome}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="1"
+                                Text="{Binding Identificador}"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="2"
+                                Text="{Binding IsAdmin, StringFormat='{0}'}"
+                                VerticalOptions="Center" />
+                            <Button
+                                Grid.Column="3"
+                                BackgroundColor="{DynamicResource Secondary}"
+                                Clicked="OnEditItem_Clicked"
+                                CommandParameter="{Binding Id}">
+                                <Button.ImageSource>
+                                    <FileImageSource File="pencil.png" />
+                                </Button.ImageSource>
+                            </Button>
+                            <Button
+                                Grid.Column="4"
+                                BackgroundColor="{DynamicResource Danger}"
+                                Clicked="OnDeleteItem_Clicked"
+                                CommandParameter="{Binding Id}">
+                                <Button.ImageSource>
+                                    <FileImageSource File="trash.png" />
+                                </Button.ImageSource>
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <!--  Botão Flutuante com ícone  -->
+        <Button
+            x:Name="FabButton"
+            Margin="10"
+            Clicked="FabButton_Clicked"
+            CornerRadius="30"
+            HorizontalOptions="End"
+            VerticalOptions="End">
+            <Button.ImageSource>
+                <FileImageSource File="add.png" />
+            </Button.ImageSource>
+        </Button>
+    </Grid>
 </ContentPage>
