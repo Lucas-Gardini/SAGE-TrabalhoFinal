@@ -4,29 +4,30 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SAGE"
+    xmlns:extension ="clr-namespace:SAGE.Extension"
     xmlns:pages="clr-namespace:SAGE.Pages"
     NavigationPage.HasBackButton="False"
     NavigationPage.HasNavigationBar="False"
     Shell.FlyoutBehavior="Disabled">
     <TabBar>
-        <Tab Title="Início" Icon="home.png">
+        <Tab x:Name="HomeTab" Title="{extension:TranslateExtansion Key=tabHome}" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
         </Tab>
 
-        <Tab Title="Disciplinas" Icon="graduation.png">
+        <Tab x:Name="DisciTab" Title="{extension:TranslateExtansion Key=tabDisciplines}" Icon="graduation.png">
             <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
         </Tab>
 
         <Tab
             x:Name="UsersTab"
-            Title="Usuários"
+            Title="{extension:TranslateExtansion Key=tabUsers}"
             Icon="team.png"
-            IsVisible="False">
+            IsVisible="True">
             <ShellContent ContentTemplate="{DataTemplate pages:UsuariosPage}" />
         </Tab>
 
-        <Tab Title="Configurações" Icon="settings.png">
-            <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
+        <Tab x:Name="SettingsTab" Title="{extension:TranslateExtansion Key=config}" Icon="settings.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:ConfigPage}" />
         </Tab>
 
     </TabBar>

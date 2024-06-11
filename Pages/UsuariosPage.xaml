@@ -3,6 +3,7 @@
     x:Class="SAGE.Pages.UsuariosPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extension ="clr-namespace:SAGE.Extension"
     NavigationPage.HasBackButton="False">
     <Grid>
         <!--  Layout principal da página  -->
@@ -10,26 +11,27 @@
             <Label
                 FontSize="Large"
                 HorizontalOptions="Center"
-                Text="Lista de Usuários"
+                Text="{extension:TranslateExtansion Key=userList}"
+                Margin="0, 30, 0, 50"
                 VerticalOptions="Center" />
 
             <!--  Cabeçalhos das Colunas  -->
             <Grid
                 Padding="10"
-                ColumnDefinitions="*,*,140,50,50"
+                ColumnDefinitions="*,*,60,50,50"
                 ColumnSpacing="5">
                 <Label
                     Grid.Column="0"
                     FontAttributes="Bold"
-                    Text="Nome" />
+                    Text="{extension:TranslateExtansion Key=name}" />
                 <Label
                     Grid.Column="1"
                     FontAttributes="Bold"
-                    Text="Identificador" />
+                    Text="ID" />
                 <Label
                     Grid.Column="2"
                     FontAttributes="Bold"
-                    Text="Administrador" />
+                    Text="ADMIN" />
                 <Label Grid.Column="3" />
                 <Label Grid.Column="4" />
             </Grid>
@@ -42,12 +44,13 @@
                     <DataTemplate>
                         <Grid
                             Padding="10"
-                            ColumnDefinitions="*,*,140,50,50"
+                            ColumnDefinitions="*,*,60,50,50"
                             ColumnSpacing="5">
                             <Label
                                 Grid.Column="0"
                                 Text="{Binding Nome}"
-                                VerticalOptions="Center" />
+                                VerticalOptions="Center" 
+                                MaxLines="1"/>
                             <Label
                                 Grid.Column="1"
                                 Text="{Binding Identificador}"
@@ -86,6 +89,8 @@
             Margin="10"
             Clicked="FabButton_Clicked"
             CornerRadius="30"
+            WidthRequest="50"
+            HeightRequest="50"
             HorizontalOptions="End"
             VerticalOptions="End">
             <Button.ImageSource>

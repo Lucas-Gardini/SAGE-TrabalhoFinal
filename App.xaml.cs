@@ -1,10 +1,15 @@
-﻿namespace SAGE
+﻿using SAGE.Extension;
+using System.Globalization;
+
+namespace SAGE
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
+
+            Translator.Instance.Culture = new CultureInfo("");
 
             MainPage = new NavigationPage(new MainPage());
 

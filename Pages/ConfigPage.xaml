@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extension="clr-namespace:SAGE.Extension"
+             x:Class="SAGE.Pages.ConfigPage"
+             Title="ConfigPage"
+             NavigationPage.HasBackButton="False"
+             BackgroundColor="{DynamicResource BackgroundColor}">
+    <VerticalStackLayout
+        Padding="20">
+        <Label 
+            Text="{extension:TranslateExtansion Key=config}"
+            TextColor="{DynamicResource TextColor}"
+            FontSize="20"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" />
+
+        <HorizontalStackLayout HorizontalOptions="Start" Spacing="20" Margin="0, 50, 0, 0">
+            <Label Text="Tema escuro"
+                   TextColor="{DynamicResource TextColor}" 
+                   VerticalOptions="Center"/>
+            <Switch 
+                IsToggled="False" 
+                VerticalOptions="Center" 
+                Visual="Default"/>
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="Center" RadioButtonGroup.GroupName="language">
+            <Label Text="{extension:TranslateExtansion Key=changeLang}" Margin="0, 50, 0, 20" TextColor="{DynamicResource TextColor}"/>
+            <RadioButton Content="{extension:TranslateExtansion Key=en}" TextColor="{DynamicResource TextColor}" x:Name="rbPt" CheckedChanged="RbPt_CheckedChanged"/>
+            <RadioButton Content="{extension:TranslateExtansion Key=pt}" TextColor="{DynamicResource TextColor}" x:Name="rbEn" CheckedChanged="RbEn_CheckedChanged"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="Center">
+            
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

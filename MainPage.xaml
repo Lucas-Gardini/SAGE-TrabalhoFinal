@@ -4,80 +4,103 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasBackButton="False"
-    NavigationPage.HasNavigationBar="False">
-    <Grid>
+    NavigationPage.HasNavigationBar="False"
+    xmlns:extension ="clr-namespace:SAGE.Extension"
+    BackgroundColor="{DynamicResource BackgroundColor}">
 
-        <!--  Background Image  -->
-        <Image
+    <!--  Background Image  -->
+        <!--<Image
             Aspect="AspectFill"
             HorizontalOptions="FillAndExpand"
             Source="wave_background.png"
-            VerticalOptions="FillAndExpand" />
+            VerticalOptions="FillAndExpand" />-->
 
-        <StackLayout
+    <StackLayout
             x:Name="AuthPage"
             Padding="20"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="CenterAndExpand">
-            <Label
-                FontSize="18"
-                HorizontalOptions="Center"
-                Text="SAGE - Sistema Acadêmico de Gestão Educacional"
-                TextColor="Black" />
 
-            <Label
+        <Label
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="{extension:TranslateExtansion Key=welcome}"
+                TextColor="{DynamicResource TextColor}" />
+
+        <Label
+                FontSize="14"
+                HorizontalOptions="Center"
+                Margin="0, 10, 0, 30"
+                Text="{extension:TranslateExtansion Key=welcomeMsg}"
+                TextColor="{DynamicResource TextColor}" />
+
+        <Label
                 FontSize="16"
                 HorizontalOptions="Center"
+                Margin="25"
                 Text="Login"
-                TextColor="Black" />
+                TextColor="{DynamicResource TextColor}" />
 
-            <Entry
+        <Entry
                 x:Name="UsernameEntry"
                 Margin="0,20,0,10"
-                FontSize="18"
+                FontSize="12"
+                ClearButtonVisibility="WhileEditing"
+                BackgroundColor="SlateGray"
+                IsTextPredictionEnabled="True"   
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                TextColor="White"
+                ReturnType="Next"
                 HorizontalOptions="FillAndExpand"
-                Placeholder="Usuário" />
+                Placeholder="{extension:TranslateExtansion Key=user}" />
 
-            <Entry
+        <Entry
                 x:Name="PasswordEntry"
                 Margin="0,10,0,15"
                 Completed="AuthButton_Clicked"
-                FontSize="18"
+                FontSize="12"
+                ClearButtonVisibility="WhileEditing"
+                BackgroundColor="SlateGray"
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                TextColor="White"
                 HorizontalOptions="FillAndExpand"
                 IsPassword="True"
-                Placeholder="Senha"
+                Placeholder="{extension:TranslateExtansion Key=password}"
                 ReturnType="Done" />
 
-            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
-                <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />
-                <Label
-                    Text="Lembrar de mim"
-                    TextColor="Black"
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+            <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />
+            <Label
+                    Text="{extension:TranslateExtansion Key=rememberMe}"
+                    TextColor="{DynamicResource TextColor}"
                     VerticalOptions="Center" />
-            </HorizontalStackLayout>
+        </HorizontalStackLayout>
 
-            <!--<HorizontalStackLayout Margin="0,5,0,10">
-                <Label Text="Não tem uma conta?" TextDecorations="Underline" />
-            </HorizontalStackLayout>-->
+        <HorizontalStackLayout Margin="0,5,0,10">
+            <Button Text="{extension:TranslateExtansion Key=noAccount}" BackgroundColor="Transparent" TextColor="CornflowerBlue" x:Name="CreateNewAccountBtn"/>
+        </HorizontalStackLayout>
 
-            <Button
+        <Button
                 x:Name="AuthButton"
                 Margin="0,10,0,10"
                 Clicked="AuthButton_Clicked"
-                FontSize="18"
-                HorizontalOptions="FillAndExpand"
-                Text="Entrar"
+                FontSize="14"
+                HorizontalOptions="Center"
+                WidthRequest="210"
+                CornerRadius="20"
+                Text="{extension:TranslateExtansion Key=enter}"
                 TextColor="White" />
 
-            <Button
+        <Button
                 x:Name="ClearDBButton"
                 BackgroundColor="red"
                 Clicked="ClearDBButton_Clicked"
-                FontSize="18"
-                HorizontalOptions="FillAndExpand"
-                Text="Limpar Banco de Dados"
+                FontSize="14"
+                HorizontalOptions="Center"
+                WidthRequest="210"
+                CornerRadius="20"
+                Text="{extension:TranslateExtansion Key=clearDB}"
                 TextColor="White" />
 
-        </StackLayout>
-    </Grid>
+    </StackLayout>
 </ContentPage>

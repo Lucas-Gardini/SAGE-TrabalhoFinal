@@ -12,6 +12,8 @@
     <Color x:Key="Tertiary">#9FA6B2</Color>
     <Color x:Key="Danger">#D60000</Color>
 
+    <Color x:Key="PlaceholderColor">#aac4dc</Color>
+
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Magenta">#D600AA</Color>
