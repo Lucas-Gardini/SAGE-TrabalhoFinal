@@ -22,7 +22,10 @@
             <Switch 
                 IsToggled="False" 
                 VerticalOptions="Center" 
-                Visual="Default"/>
+                Visual="Default"
+                x:Name="ChangeTheme"
+                Toggled="ChangeTheme_Toggled"
+                />
         </HorizontalStackLayout>
 
         <VerticalStackLayout VerticalOptions="Center" RadioButtonGroup.GroupName="language">

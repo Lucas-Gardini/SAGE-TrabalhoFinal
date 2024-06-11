@@ -69,7 +69,7 @@
                                 VerticalOptions="Center" />
                             <Button
                                 Grid.Column="3"
-                                BackgroundColor="{DynamicResource Secondary}"
+                                BackgroundColor="{StaticResource Secondary}"
                                 Clicked="OnEditItem_Clicked"
                                 CommandParameter="{Binding Id}">
                                 <Button.ImageSource>
@@ -78,7 +78,7 @@
                             </Button>
                             <Button
                                 Grid.Column="4"
-                                BackgroundColor="{DynamicResource Danger}"
+                                BackgroundColor="{StaticResource Danger}"
                                 Clicked="OnDeleteItem_Clicked"
                                 CommandParameter="{Binding Id}">
                                 <Button.ImageSource>
@@ -98,6 +98,7 @@
             Clicked="FabButton_Clicked"
             CornerRadius="30"
             WidthRequest="50"
+            BackgroundColor="{StaticResource Primary}"
             HeightRequest="50"
             HorizontalOptions="End"
             VerticalOptions="End">

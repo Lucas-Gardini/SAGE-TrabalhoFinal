@@ -11,10 +11,10 @@
         <Button
             x:Name="CloseButton"
             Margin="10"
-            BackgroundColor="White"
             Clicked="CloseButton_Clicked"
             CornerRadius="30"
             HorizontalOptions="End"
+            BackgroundColor="{StaticResource Danger}"
             WidthRequest="50"
             HeightRequest="50"
             VerticalOptions="Start"
@@ -49,7 +49,7 @@
                     Placeholder="ex: Lucas Dias de Oliveira Taiânes"
                     VerticalOptions="Center" 
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    PlaceholderColor="{DynamicResource PlaceholderColor}"/>
+                    PlaceholderColor="{StaticResource PlaceholderColor}"/>
             </VerticalStackLayout>
 
             <!--  Senha  -->
@@ -61,7 +61,7 @@
                     Placeholder="******"
                     VerticalOptions="Center" 
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    PlaceholderColor="{DynamicResource PlaceholderColor}"/>
+                    PlaceholderColor="{StaticResource PlaceholderColor}"/>
             </VerticalStackLayout>
 
             <!--  Administrador  -->
@@ -75,7 +75,7 @@
 
             <!--  Botões de Ação  -->
             <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-                <Button Clicked="OnSaveClicked" Text="{extension:TranslateExtansion Key=save}" TextColor="White"/>
+                <Button Clicked="OnSaveClicked" Text="{extension:TranslateExtansion Key=save}" TextColor="White" BackgroundColor="{StaticResource Primary}"/>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
