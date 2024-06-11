@@ -81,6 +81,18 @@ public partial class DisciplinasPage : ContentPage
 
 	private void Label_Loaded(object sender, EventArgs e)
 	{
-		
+		var label = sender as Label;
+
+		if (label == null)
+			return;
+
+		var disciplinaId = label.BindingContext as Disciplina;
+
+		if (disciplinaId == null)
+			return;
+
+		professor = _usuariosService.GetOne(u => u.Id == disciplinaId.ProfessorId); // Busca o professor da disciplina
+
+		label.Text = professor.Nome; // Exibe o nome do professor
 	}
 }

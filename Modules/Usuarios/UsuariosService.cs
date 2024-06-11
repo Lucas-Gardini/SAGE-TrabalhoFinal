@@ -149,16 +149,5 @@ namespace SAGE.Modules.Usuarios
             int novoIdNumerico = int.Parse(ultimoUsuario.Identificador) + 1;
             return novoIdNumerico.ToString("D6"); // Garante que o identificador tenha 6 dígitos
         }
-
-		/// <summary>
-		/// Obtém o nome do usuário pelo ID.
-		/// </summary>
-		/// <param name="id">O ID do usuário.</param>
-		/// <returns>O nome do usuário correspondente ao ID, ou uma string vazia se não for encontrado.</returns>
-		public string ObterNomeUsuarioPorId(int id)
-		{
-			var usuario = this.GetOne(u => u.Id == id);
-			return usuario != null ? usuario.Nome : string.Empty;
-		}
 	}
 }
