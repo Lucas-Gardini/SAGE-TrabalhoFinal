@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="admin" xml:space="preserve">
+    <value>Administrador</value>
+  </data>
   <data name="changeLang" xml:space="preserve">
     <value>Trocar idioma</value>
   </data>
@@ -125,6 +128,9 @@
   </data>
   <data name="config" xml:space="preserve">
     <value>Configurações</value>
+  </data>
+  <data name="createAndEditUser" xml:space="preserve">
+    <value>Criar/Editar Usuário</value>
   </data>
   <data name="en" xml:space="preserve">
     <value>Inglês</value>
@@ -146,6 +152,9 @@
   </data>
   <data name="rememberMe" xml:space="preserve">
     <value>Lembrar de mim</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Salvar</value>
   </data>
   <data name="tabDisciplines" xml:space="preserve">
     <value>Disciplinas</value>

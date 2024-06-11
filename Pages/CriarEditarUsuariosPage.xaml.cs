@@ -1,5 +1,7 @@
 using SAGE.Modules.Usuarios;
 using Microsoft.Maui.Controls;
+using System.Globalization;
+using SAGE.Extension;
 
 namespace SAGE.Pages
 {
@@ -25,6 +27,18 @@ namespace SAGE.Pages
             Usuario = new Usuario(); // Inicializa um novo usuário
             BindingContext = this;
             AoFechar = () => { }; // Define o evento de fechamento como um método vazio
+
+            MessagingCenter.Subscribe<ConfigPage>(this, "LanguageChanged", (sender) =>
+            {
+                // Atualize o conteúdo da página aqui
+                this.Atualizar();
+            });
+        }
+
+        private void Atualizar()
+        {
+            // Obtém a cultura atual
+            var culture = Translator.Instance.Culture ?? CultureInfo.CurrentCulture;
         }
 
         /// <summary>

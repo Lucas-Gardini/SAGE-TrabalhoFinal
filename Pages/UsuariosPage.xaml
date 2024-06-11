@@ -4,7 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:extension ="clr-namespace:SAGE.Extension"
-    NavigationPage.HasBackButton="False">
+    NavigationPage.HasBackButton="False"
+    BackgroundColor="{DynamicResource BackgroundColor}">
     <Grid>
         <!--  Layout principal da página  -->
         <VerticalStackLayout Margin="0,0,0,75">
@@ -12,6 +13,7 @@
                 FontSize="Large"
                 HorizontalOptions="Center"
                 Text="{extension:TranslateExtansion Key=userList}"
+                TextColor="{DynamicResource TextColor}"
                 Margin="0, 30, 0, 50"
                 VerticalOptions="Center" />
 
@@ -23,15 +25,18 @@
                 <Label
                     Grid.Column="0"
                     FontAttributes="Bold"
-                    Text="{extension:TranslateExtansion Key=name}" />
+                    Text="{extension:TranslateExtansion Key=name}" 
+                    TextColor="{DynamicResource TextColor}"/>
                 <Label
                     Grid.Column="1"
                     FontAttributes="Bold"
-                    Text="ID" />
+                    Text="ID" 
+                    TextColor="{DynamicResource TextColor}"/>
                 <Label
                     Grid.Column="2"
                     FontAttributes="Bold"
-                    Text="ADMIN" />
+                    Text="ADMIN" 
+                    TextColor="{DynamicResource TextColor}"/>
                 <Label Grid.Column="3" />
                 <Label Grid.Column="4" />
             </Grid>
@@ -49,15 +54,18 @@
                             <Label
                                 Grid.Column="0"
                                 Text="{Binding Nome}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalOptions="Center" 
                                 MaxLines="1"/>
                             <Label
                                 Grid.Column="1"
                                 Text="{Binding Identificador}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalOptions="Center" />
                             <Label
                                 Grid.Column="2"
                                 Text="{Binding IsAdmin, StringFormat='{0}'}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalOptions="Center" />
                             <Button
                                 Grid.Column="3"

@@ -61,6 +61,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Administrador.
+        /// </summary>
+        internal static string admin {
+            get {
+                return ResourceManager.GetString("admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Trocar idioma.
         /// </summary>
         internal static string changeLang {
@@ -84,6 +93,15 @@ namespace SAGE.Resources.i18n {
         internal static string config {
             get {
                 return ResourceManager.GetString("config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Criar/Editar Usuário.
+        /// </summary>
+        internal static string createAndEditUser {
+            get {
+                return ResourceManager.GetString("createAndEditUser", resourceCulture);
             }
         }
         
@@ -147,6 +165,15 @@ namespace SAGE.Resources.i18n {
         internal static string rememberMe {
             get {
                 return ResourceManager.GetString("rememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Salvar.
+        /// </summary>
+        internal static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
             }
         }
         
