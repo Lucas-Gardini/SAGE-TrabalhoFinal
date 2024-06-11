@@ -14,9 +14,10 @@
             Clicked="CloseButton_Clicked"
             CornerRadius="30"
             HorizontalOptions="End"
-            BackgroundColor="{StaticResource Danger}"
+            BackgroundColor="{DynamicResource Danger}"
             WidthRequest="50"
             HeightRequest="50"
+            TextColor="White"
             VerticalOptions="Start"
             ZIndex="9">
             <Button.ImageSource>
@@ -42,18 +43,18 @@
             </VerticalStackLayout>-->
 
             <!--  Nome  -->
-            <VerticalStackLayout>
+            <VerticalStackLayout Spacing="10">
                 <Label Text="{extension:TranslateExtansion Key=name}" VerticalOptions="Center" TextColor="{DynamicResource TextColor}"/>
                 <Entry
                     x:Name="NomeEntry"
                     Placeholder="ex: Lucas Dias de Oliveira Taiânes"
                     VerticalOptions="Center" 
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    PlaceholderColor="{StaticResource PlaceholderColor}"/>
+                    PlaceholderColor="{DynamicResource PlaceholderColor}"/>
             </VerticalStackLayout>
 
             <!--  Senha  -->
-            <VerticalStackLayout>
+            <VerticalStackLayout Spacing="10">
                 <Label Text="{extension:TranslateExtansion Key=password}" VerticalOptions="Center" TextColor="{DynamicResource TextColor}"/>
                 <Entry
                     x:Name="SenhaEntry"
@@ -61,7 +62,7 @@
                     Placeholder="******"
                     VerticalOptions="Center" 
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    PlaceholderColor="{StaticResource PlaceholderColor}"/>
+                    PlaceholderColor="{DynamicResource PlaceholderColor}"/>
             </VerticalStackLayout>
 
             <!--  Administrador  -->
@@ -75,7 +76,7 @@
 
             <!--  Botões de Ação  -->
             <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-                <Button Clicked="OnSaveClicked" Text="{extension:TranslateExtansion Key=save}" TextColor="White" BackgroundColor="{StaticResource Primary}"/>
+                <Button Clicked="OnSaveClicked" Text="{extension:TranslateExtansion Key=save}" TextColor="White" BackgroundColor="{DynamicResource Primary}"/>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
