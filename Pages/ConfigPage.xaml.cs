@@ -9,7 +9,25 @@ public partial class ConfigPage : ContentPage
 	public ConfigPage()
 	{
 		InitializeComponent();
-	}
+
+        ChangeTheme.IsToggled = ThemeManager.SelectedTheme == nameof(Themes.DarkTheme);
+
+        if(Translator.Instance.Culture.Name ==  "en-US")
+        {
+            rbEn.IsChecked = false;
+            rbPt.IsChecked = true;
+        }
+        else
+        {
+            rbPt.IsChecked = false;
+            rbEn.IsChecked = true;
+        }
+    }
+
+    private void Atualizar_idioma()
+    {
+
+    }
 
     private void RbPt_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {

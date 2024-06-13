@@ -1,5 +1,8 @@
-﻿using SAGE.Modules.Usuarios;
+﻿using SAGE.Extension;
+using SAGE.Modules.Usuarios;
 using SAGE.Pages;
+using System.Globalization;
+using Themes = SAGE.Resources.Styles.Themes;
 
 namespace SAGE
 {
@@ -82,6 +85,34 @@ namespace SAGE
             File.Delete(_usuariosService.DbPath);
             // Fecha a aplicação
             System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+
+        private void ChangeThemeBtn_Clicked(object sender, EventArgs e)
+        {
+            if (ThemeManager.SelectedTheme == nameof(Themes.LightTheme))
+            {
+                ThemeManager.SetTheme(nameof(Themes.DarkTheme));
+            }
+            else
+            {
+                ThemeManager.SetTheme(nameof(Themes.LightTheme));
+            }
+        }
+
+        private void ChangeLangBtn_Clicked(object sender, EventArgs e)
+        {
+            if(ChangeLangBtn.Text == "pt-BR")
+            {
+                Translator.Instance.Culture = new CultureInfo("en-US");
+                Translator.Instance.OnPropertyChanged();
+                MessagingCenter.Send(this, "LanguageChanged");
+            }
+            else
+            {
+                Translator.Instance.Culture = new CultureInfo("");
+                Translator.Instance.OnPropertyChanged();
+                MessagingCenter.Send(this, "LanguageChanged");
+            }
         }
     }
 }

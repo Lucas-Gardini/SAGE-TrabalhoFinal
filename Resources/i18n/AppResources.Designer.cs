@@ -70,6 +70,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Sigla:.
+        /// </summary>
+        internal static string acronymDisc {
+            get {
+                return ResourceManager.GetString("acronymDisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Administrador.
         /// </summary>
         internal static string admin {
@@ -84,6 +93,15 @@ namespace SAGE.Resources.i18n {
         internal static string changeLang {
             get {
                 return ResourceManager.GetString("changeLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Trocar tema.
+        /// </summary>
+        internal static string changeTheme {
+            get {
+                return ResourceManager.GetString("changeTheme", resourceCulture);
             }
         }
         
@@ -120,6 +138,24 @@ namespace SAGE.Resources.i18n {
         internal static string createAndEditUser {
             get {
                 return ResourceManager.GetString("createAndEditUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a pt-BR.
+        /// </summary>
+        internal static string currentLang {
+            get {
+                return ResourceManager.GetString("currentLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Tema escuro.
+        /// </summary>
+        internal static string darkTheme {
+            get {
+                return ResourceManager.GetString("darkTheme", resourceCulture);
             }
         }
         
@@ -165,6 +201,15 @@ namespace SAGE.Resources.i18n {
         internal static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nome:.
+        /// </summary>
+        internal static string nameDisc {
+            get {
+                return ResourceManager.GetString("nameDisc", resourceCulture);
             }
         }
         
@@ -237,6 +282,15 @@ namespace SAGE.Resources.i18n {
         internal static string teacher {
             get {
                 return ResourceManager.GetString("teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Professor:.
+        /// </summary>
+        internal static string teacherDisc {
+            get {
+                return ResourceManager.GetString("teacherDisc", resourceCulture);
             }
         }
         

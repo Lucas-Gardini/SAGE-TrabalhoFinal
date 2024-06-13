@@ -99,4 +99,17 @@ public partial class DisciplinasPage : ContentPage
 
 		label.Text = professor.Nome; // Exibe o nome do professor
 	}
+
+    private void DisciplinasCollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
+    {
+        // Verifica se o usuário chegou ao final da visualização
+        if (e.VerticalDelta > 0 && e.VerticalOffset + DisciplinasCollectionView.Height >= DisciplinasCollectionView.ItemsSource.Cast<object>().Count())
+        {
+            // Obtém o último item da fonte de itens
+            var lastItem = DisciplinasCollectionView.ItemsSource.Cast<object>().LastOrDefault();
+
+            // Rola até o último item
+            DisciplinasCollectionView.ScrollTo(lastItem, ScrollToPosition.End, animate: true);
+        }
+    }
 }

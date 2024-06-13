@@ -26,9 +26,9 @@
         </Button>
 
         <!--  Layout principal da página  -->
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout Margin="0, 50, 0, 0" Padding="20" Spacing="20">
             <Label
-                FontSize="Large"
+                FontSize="20"
                 HorizontalOptions="Center"
                 TextColor="{DynamicResource TextColor}"
                 Text="{extension:TranslateExtansion Key=createAndEditUser}" />
@@ -47,8 +47,10 @@
                 <Label Text="{extension:TranslateExtansion Key=name}" VerticalOptions="Center" TextColor="{DynamicResource TextColor}"/>
                 <Entry
                     x:Name="NomeEntry"
+                    MaxLength="22"
                     Placeholder="ex: Lucas Dias de Oliveira Taiânes"
                     VerticalOptions="Center" 
+                    HeightRequest="40"
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
                     PlaceholderColor="{DynamicResource PlaceholderColor}"/>
             </VerticalStackLayout>
@@ -60,6 +62,7 @@
                     x:Name="SenhaEntry"
                     IsPassword="True"
                     Placeholder="******"
+                    HeightRequest="40"
                     VerticalOptions="Center" 
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
                     PlaceholderColor="{DynamicResource PlaceholderColor}"/>

@@ -16,11 +16,10 @@
             HorizontalOptions="Start" />
 
         <HorizontalStackLayout HorizontalOptions="Start" Spacing="20" Margin="0, 50, 0, 0">
-            <Label Text="Tema escuro"
+            <Label Text="{extension:TranslateExtansion Key=darkTheme}"
                    TextColor="{DynamicResource TextColor}" 
                    VerticalOptions="Center"/>
-            <Switch 
-                IsToggled="False" 
+            <Switch
                 VerticalOptions="Center" 
                 Visual="Default"
                 x:Name="ChangeTheme"

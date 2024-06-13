@@ -120,11 +120,17 @@
   <data name="acronym" xml:space="preserve">
     <value>Sigla</value>
   </data>
+  <data name="acronymDisc" xml:space="preserve">
+    <value>Sigla:</value>
+  </data>
   <data name="admin" xml:space="preserve">
     <value>Administrador</value>
   </data>
   <data name="changeLang" xml:space="preserve">
     <value>Trocar idioma</value>
+  </data>
+  <data name="changeTheme" xml:space="preserve">
+    <value>Trocar tema</value>
   </data>
   <data name="clearDB" xml:space="preserve">
     <value>Limpar Banco de Dados</value>
@@ -137,6 +143,12 @@
   </data>
   <data name="createAndEditUser" xml:space="preserve">
     <value>Criar/Editar Usuário</value>
+  </data>
+  <data name="currentLang" xml:space="preserve">
+    <value>pt-BR</value>
+  </data>
+  <data name="darkTheme" xml:space="preserve">
+    <value>Tema escuro</value>
   </data>
   <data name="disciplinesList" xml:space="preserve">
     <value>Lista de Disciplinas</value>
@@ -152,6 +164,9 @@
   </data>
   <data name="name" xml:space="preserve">
     <value>Nome</value>
+  </data>
+  <data name="nameDisc" xml:space="preserve">
+    <value>Nome:</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Senha</value>
@@ -176,6 +191,9 @@
   </data>
   <data name="teacher" xml:space="preserve">
     <value>Professor</value>
+  </data>
+  <data name="teacherDisc" xml:space="preserve">
+    <value>Professor:</value>
   </data>
   <data name="user" xml:space="preserve">
     <value>Usuário</value>

@@ -5,7 +5,7 @@
 
     <Color x:Key="BackgroundColor">#212225</Color>
     <Color x:Key="TextColor">#fff</Color>
-    <Color x:Key="EntryBackgroundColor">#00FFFFFF</Color>
+    <Color x:Key="EntryBackgroundColor">#43454b</Color>
     <Color x:Key="Primary">#14A44D</Color>
     <Color x:Key="PrimaryDark">#14A44D</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>

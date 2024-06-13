@@ -58,7 +58,7 @@ public partial class CriarEditarDisciplinasPage : ContentPage
 	private async void OnSaveClicked(object sender, EventArgs e)
 	{
 		Disciplina.Nome = NomeEntry.Text;
-		Disciplina.Sigla = SiglaEntry.Text;
+		Disciplina.Sigla = SiglaEntry.Text.ToUpper();
 
 		if (string.IsNullOrWhiteSpace(Disciplina.Nome) || string.IsNullOrWhiteSpace(Disciplina.Sigla) || ProfessoresPicker.SelectedIndex == -1)
 		{

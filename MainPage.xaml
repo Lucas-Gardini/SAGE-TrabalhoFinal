@@ -102,5 +102,30 @@
                 Text="{extension:TranslateExtansion Key=clearDB}"
                 TextColor="White" />
 
+        <Grid VerticalOptions="Center" ColumnDefinitions="Auto, *, Auto">
+            <Button 
+                BackgroundColor="Transparent"
+                BorderWidth="1"
+                x:Name="ChangeThemeBtn"
+                Clicked="ChangeThemeBtn_Clicked"
+                BorderColor="{DynamicResource PlaceholderColor}"
+                TextColor="{DynamicResource TextColor}"
+                CornerRadius="20"
+                Margin="0,35,5,0"
+                Text="{extension:TranslateExtansion Key=changeTheme}"/>
+
+            <Button 
+                Grid.Column="2"
+                BackgroundColor="Transparent"
+                BorderWidth="1"
+                x:Name="ChangeLangBtn"
+                Clicked="ChangeLangBtn_Clicked"
+                BorderColor="{DynamicResource PlaceholderColor}"
+                TextColor="{DynamicResource TextColor}"
+                CornerRadius="20"
+                Margin="5,35,0,0"
+                Text="{extension:TranslateExtansion Key=currentLang}"/>
+        </Grid>
+
     </StackLayout>
 </ContentPage>

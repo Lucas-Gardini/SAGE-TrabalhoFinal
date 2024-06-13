@@ -16,7 +16,7 @@ namespace SAGE.Extension
             get => AppResources.ResourceManager.GetString(key, Culture);
         }
 
-        public CultureInfo Culture { get; set; } = new CultureInfo("pt-BR");
+        public CultureInfo Culture { get; set; } = new CultureInfo("");
 
         public static Translator Instance { get; set; } = new Translator();
 
