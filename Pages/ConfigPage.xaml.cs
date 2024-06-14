@@ -12,35 +12,35 @@ public partial class ConfigPage : ContentPage
 
         ChangeTheme.IsToggled = ThemeManager.SelectedTheme == nameof(Themes.DarkTheme);
 
-        if(Translator.Instance.Culture.Name ==  "en-US")
+        if (Translator.Instance.Culture.Name == "pt-BR")
         {
-            rbEn.IsChecked = false;
             rbPt.IsChecked = true;
         }
-        else
+        else if (Translator.Instance.Culture.Name == "en-US")
         {
-            rbPt.IsChecked = false;
             rbEn.IsChecked = true;
         }
     }
 
-    private void Atualizar_idioma()
-    {
-
-    }
 
     private void RbPt_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        Translator.Instance.Culture = new CultureInfo("en-US");
-        Translator.Instance.OnPropertyChanged();
-        MessagingCenter.Send(this, "LanguageChanged");
+        if (Translator.Instance.Culture.Name != "pt-BR")
+        {
+            Translator.Instance.Culture = new CultureInfo("pt-BR");
+            Translator.Instance.OnPropertyChanged();
+            MessagingCenter.Send(this, "LanguageChanged");
+        }
     }
 
     private void RbEn_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        Translator.Instance.Culture = new CultureInfo("");
-        Translator.Instance.OnPropertyChanged();
-        MessagingCenter.Send(this, "LanguageChanged");
+        if (Translator.Instance.Culture.Name != "en-US")
+        {
+            Translator.Instance.Culture = new CultureInfo("en-US");
+            Translator.Instance.OnPropertyChanged();
+            MessagingCenter.Send(this, "LanguageChanged");
+        }
     }
 
     private void ChangeTheme_Toggled(object sender, ToggledEventArgs e)

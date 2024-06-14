@@ -160,6 +160,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Usando idioma padrão.
+        /// </summary>
+        internal static string defaultLang {
+            get {
+                return ResourceManager.GetString("defaultLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Lista de Disciplinas.
         /// </summary>
         internal static string disciplinesList {

@@ -105,13 +105,11 @@ namespace SAGE
             {
                 Translator.Instance.Culture = new CultureInfo("en-US");
                 Translator.Instance.OnPropertyChanged();
-                MessagingCenter.Send(this, "LanguageChanged");
             }
             else
             {
-                Translator.Instance.Culture = new CultureInfo("");
+                Translator.Instance.Culture = new CultureInfo("pt-BR");
                 Translator.Instance.OnPropertyChanged();
-                MessagingCenter.Send(this, "LanguageChanged");
             }
         }
     }

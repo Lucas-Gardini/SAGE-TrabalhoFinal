@@ -150,6 +150,9 @@
   <data name="darkTheme" xml:space="preserve">
     <value>Tema escuro</value>
   </data>
+  <data name="defaultLang" xml:space="preserve">
+    <value>Usando idioma padrão</value>
+  </data>
   <data name="disciplinesList" xml:space="preserve">
     <value>Lista de Disciplinas</value>
   </data>

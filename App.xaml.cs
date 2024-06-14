@@ -9,7 +9,7 @@ namespace SAGE
         {
             InitializeComponent();
 
-            Translator.Instance.Culture = new CultureInfo("");
+            Translator.Instance.Culture = new CultureInfo("pt-BR");
 
             MainPage = new NavigationPage(new MainPage());
 

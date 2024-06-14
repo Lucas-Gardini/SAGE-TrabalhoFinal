@@ -21,16 +21,16 @@
                    VerticalOptions="Center"/>
             <Switch
                 VerticalOptions="Center" 
-                Visual="Default"
+                Visual="Default" 
                 x:Name="ChangeTheme"
                 Toggled="ChangeTheme_Toggled"
                 />
         </HorizontalStackLayout>
 
-        <VerticalStackLayout VerticalOptions="Center" RadioButtonGroup.GroupName="language">
+        <VerticalStackLayout VerticalOptions="Center">
             <Label Text="{extension:TranslateExtansion Key=changeLang}" Margin="0, 50, 0, 20" TextColor="{DynamicResource TextColor}"/>
-            <RadioButton Content="{extension:TranslateExtansion Key=en}" TextColor="{DynamicResource TextColor}" x:Name="rbPt" CheckedChanged="RbPt_CheckedChanged"/>
-            <RadioButton Content="{extension:TranslateExtansion Key=pt}" TextColor="{DynamicResource TextColor}" x:Name="rbEn" CheckedChanged="RbEn_CheckedChanged"/>
+            <RadioButton Content="{extension:TranslateExtansion Key=en}" TextColor="{DynamicResource TextColor}" x:Name="rbEn" CheckedChanged="RbEn_CheckedChanged" IsChecked="False"/>
+            <RadioButton Content="{extension:TranslateExtansion Key=pt}" TextColor="{DynamicResource TextColor}" x:Name="rbPt" CheckedChanged="RbPt_CheckedChanged" IsChecked="False"/>
         </VerticalStackLayout>
 
         <VerticalStackLayout VerticalOptions="Center">
