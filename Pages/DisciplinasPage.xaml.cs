@@ -97,7 +97,12 @@ public partial class DisciplinasPage : ContentPage
 
 		professor = _usuariosService.GetOne(u => u.Id == disciplinaId.ProfessorId); // Busca o professor da disciplina
 
-		label.Text = professor.Nome; // Exibe o nome do professor
+		// Verifica se o professor foi encontrado
+		if (professor != null) {
+			label.Text = professor.Nome; // Exibe o nome do professor
+		} else {
+			label.Text = "Professor não encontrado";
+		}
 	}
 
     private void DisciplinasCollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
