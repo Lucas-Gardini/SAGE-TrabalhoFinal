@@ -123,8 +123,14 @@
   <data name="acronymDisc" xml:space="preserve">
     <value>Acronym:</value>
   </data>
+  <data name="addNote" xml:space="preserve">
+    <value>Add Note</value>
+  </data>
   <data name="admin" xml:space="preserve">
     <value>Administrator</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="changeLang" xml:space="preserve">
     <value>Change language</value>
@@ -153,6 +159,9 @@
   <data name="defaultLang" xml:space="preserve">
     <value>Using default language</value>
   </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="disciplinesList" xml:space="preserve">
     <value>Disciplines List</value>
   </data>
@@ -164,6 +173,9 @@
   </data>
   <data name="enter" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="entryNote" xml:space="preserve">
+    <value>Enter the student's note</value>
   </data>
   <data name="error" xml:space="preserve">
     <value>Error</value>
@@ -177,8 +189,20 @@
   <data name="fillFieldsAlert" xml:space="preserve">
     <value>Please fill in all required fields.</value>
   </data>
+  <data name="grade" xml:space="preserve">
+    <value>Grade</value>
+  </data>
   <data name="identifier" xml:space="preserve">
     <value>User identifier</value>
+  </data>
+  <data name="invUserOrPass" xml:space="preserve">
+    <value>User or password is invalid</value>
+  </data>
+  <data name="isTest" xml:space="preserve">
+    <value>Is the grade from a test?</value>
+  </data>
+  <data name="loading" xml:space="preserve">
+    <value>Loading...</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>Logout</value>
@@ -192,11 +216,23 @@
   <data name="nameDisc" xml:space="preserve">
     <value>Name:</value>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="noAddGrade" xml:space="preserve">
+    <value>Unable to add grade</value>
+  </data>
   <data name="notDelDisc" xml:space="preserve">
     <value>Unable to delete subject</value>
   </data>
   <data name="notesList" xml:space="preserve">
     <value>Notas</value>
+  </data>
+  <data name="notInfoPass" xml:space="preserve">
+    <value>Password not informed</value>
+  </data>
+  <data name="notInfoUser" xml:space="preserve">
+    <value>User not informed</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>
@@ -234,6 +270,9 @@
   <data name="teacherDisc" xml:space="preserve">
     <value>Teacher:</value>
   </data>
+  <data name="test" xml:space="preserve">
+    <value>Test</value>
+  </data>
   <data name="useIt" xml:space="preserve">
     <value>Use it as a login!</value>
   </data>
@@ -243,10 +282,16 @@
   <data name="userList" xml:space="preserve">
     <value>Users List</value>
   </data>
+  <data name="wantDeleteGrade" xml:space="preserve">
+    <value>Do you want to delete the grade?</value>
+  </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome</value>
   </data>
   <data name="welcomeMsg" xml:space="preserve">
     <value>SAGE - Sistema Acadêmico de Gestão Educacional</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

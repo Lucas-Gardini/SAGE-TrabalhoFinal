@@ -8,8 +8,7 @@
     xmlns:pages="clr-namespace:SAGE.Pages"
     NavigationPage.HasBackButton="False"
     NavigationPage.HasNavigationBar="False"
-    Shell.FlyoutBehavior="Disabled"
-    FlyoutBackgroundColor="{DynamicResource Secondary}">
+    Shell.FlyoutBehavior="Disabled">
     <TabBar>
         <!--<Tab x:Name="HomeTab" Title="{extension:TranslateExtansion Key=tabHome}" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />

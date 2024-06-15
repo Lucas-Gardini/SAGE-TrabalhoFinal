@@ -17,25 +17,32 @@
                 TextColor="{DynamicResource TextColor}"
                 VerticalOptions="Center" />
 
-            <HorizontalStackLayout
-                Margin="0,50,0,0"
-                Padding="20,0,0,0"
-                HorizontalOptions="Start"
-                Spacing="20">
+            <VerticalStackLayout Padding="20,0,0,0">
                 <Label
-                    Text="{extension:TranslateExtansion Key=darkTheme}"
-                    TextColor="{DynamicResource TextColor}"
-                    VerticalOptions="Center" />
-                <Switch
-                    x:Name="ChangeTheme"
-                    Toggled="ChangeTheme_Toggled"
-                    VerticalOptions="Center"
-                    Visual="Default" />
-            </HorizontalStackLayout>
+                    Margin="0,40,0,10"
+                    FontSize="18"
+                    Text="{extension:TranslateExtansion Key=changeTheme}"
+                    TextColor="{DynamicResource TextColor}" />      
+                <HorizontalStackLayout
+                    Padding="20,0,0,0"
+                    HorizontalOptions="Start"
+                    Spacing="20">
+                    <Label
+                        Text="{extension:TranslateExtansion Key=darkTheme}"
+                        TextColor="{DynamicResource TextColor}"
+                        VerticalOptions="Center" />
+                    <Switch
+                        x:Name="ChangeTheme"
+                        Toggled="ChangeTheme_Toggled"
+                        VerticalOptions="Center"
+                        Visual="Default" /> 
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
 
             <VerticalStackLayout Padding="20,0,0,0" VerticalOptions="Center">
                 <Label
-                    Margin="0,50,0,20"
+                    Margin="0,40,0,20"
+                    FontSize="18"
                     Text="{extension:TranslateExtansion Key=changeLang}"
                     TextColor="{DynamicResource TextColor}" />
                 <RadioButton

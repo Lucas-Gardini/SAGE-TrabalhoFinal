@@ -47,6 +47,8 @@ namespace SAGE
         /// </summary>
         private async void AuthButton_Clicked(object sender, EventArgs e)
         {
+            AuthButton.IsEnabled = false;
+            AuthButton.Text = Translator.Instance["loading"];
             // Obtém o nome de usuário da entrada de texto
             var usuario = UsernameEntry.Text;
             // Obtém a senha da entrada de texto
@@ -55,14 +57,18 @@ namespace SAGE
             // Verifica se o nome de usuário foi informado
             if (string.IsNullOrEmpty(usuario))
             {
-                await DisplayAlert("Erro", "Usuário não informado", "OK");
+                await DisplayAlert(Translator.Instance["error"], Translator.Instance["notInfoUser"], "OK");
+                AuthButton.Text = Translator.Instance["enter"];
+                AuthButton.IsEnabled = true;
                 return;
             }
 
             // Verifica se a senha foi informada
             if (string.IsNullOrEmpty(senha))
             {
-                await DisplayAlert("Erro", "Senha não informada", "OK");
+                await DisplayAlert(Translator.Instance["error"], Translator.Instance["notInfoPass"], "OK");
+                AuthButton.Text = Translator.Instance["enter"];
+                AuthButton.IsEnabled = true;
                 return;
             }
 
@@ -85,7 +91,9 @@ namespace SAGE
                 await Navigation.PushAsync(new AppShell()); // Navega para a página contendo a navegação principal
             } else
             {
-                await DisplayAlert("Erro", "Usuário ou senha inválidos", "OK");
+                await DisplayAlert(Translator.Instance["error"], Translator.Instance["invUserOrPass"], "OK");
+                AuthButton.Text = Translator.Instance["enter"];
+                AuthButton.IsEnabled = true;
             }
         }
 

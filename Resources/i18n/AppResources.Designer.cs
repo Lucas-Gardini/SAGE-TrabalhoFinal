@@ -79,11 +79,29 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Adicionar Nota.
+        /// </summary>
+        internal static string addNote {
+            get {
+                return ResourceManager.GetString("addNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Administrador.
         /// </summary>
         internal static string admin {
             get {
                 return ResourceManager.GetString("admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Cancelar.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
             }
         }
         
@@ -169,6 +187,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Excluir.
+        /// </summary>
+        internal static string delete {
+            get {
+                return ResourceManager.GetString("delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Lista de Disciplinas.
         /// </summary>
         internal static string disciplinesList {
@@ -201,6 +228,15 @@ namespace SAGE.Resources.i18n {
         internal static string enter {
             get {
                 return ResourceManager.GetString("enter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Digite a nota do aluno.
+        /// </summary>
+        internal static string entryNote {
+            get {
+                return ResourceManager.GetString("entryNote", resourceCulture);
             }
         }
         
@@ -241,11 +277,47 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nota.
+        /// </summary>
+        internal static string grade {
+            get {
+                return ResourceManager.GetString("grade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Identificador do usuário.
         /// </summary>
         internal static string identifier {
             get {
                 return ResourceManager.GetString("identifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Usuário ou senha inválidos.
+        /// </summary>
+        internal static string invUserOrPass {
+            get {
+                return ResourceManager.GetString("invUserOrPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A nota é de uma prova?.
+        /// </summary>
+        internal static string isTest {
+            get {
+                return ResourceManager.GetString("isTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Carregando....
+        /// </summary>
+        internal static string loading {
+            get {
+                return ResourceManager.GetString("loading", resourceCulture);
             }
         }
         
@@ -286,6 +358,33 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não.
+        /// </summary>
+        internal static string no {
+            get {
+                return ResourceManager.GetString("no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não foi possível adicionar a nota.
+        /// </summary>
+        internal static string noAddGrade {
+            get {
+                return ResourceManager.GetString("noAddGrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não foi possível excluir a nota.
+        /// </summary>
+        internal static string noDeleteGrade {
+            get {
+                return ResourceManager.GetString("noDeleteGrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Não foi possível excluir a disciplina.
         /// </summary>
         internal static string notDelDisc {
@@ -300,6 +399,24 @@ namespace SAGE.Resources.i18n {
         internal static string notesList {
             get {
                 return ResourceManager.GetString("notesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha não informada.
+        /// </summary>
+        internal static string notInfoPass {
+            get {
+                return ResourceManager.GetString("notInfoPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Usuário não informado.
+        /// </summary>
+        internal static string notInfoUser {
+            get {
+                return ResourceManager.GetString("notInfoUser", resourceCulture);
             }
         }
         
@@ -412,6 +529,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Prova.
+        /// </summary>
+        internal static string test {
+            get {
+                return ResourceManager.GetString("test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Use ele como login!.
         /// </summary>
         internal static string useIt {
@@ -439,6 +565,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Deseja excluir a nota?.
+        /// </summary>
+        internal static string wantDeleteGrade {
+            get {
+                return ResourceManager.GetString("wantDeleteGrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Bem Vindo.
         /// </summary>
         internal static string welcome {
@@ -453,6 +588,15 @@ namespace SAGE.Resources.i18n {
         internal static string welcomeMsg {
             get {
                 return ResourceManager.GetString("welcomeMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Sim.
+        /// </summary>
+        internal static string yes {
+            get {
+                return ResourceManager.GetString("yes", resourceCulture);
             }
         }
     }

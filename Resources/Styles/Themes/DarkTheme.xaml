@@ -15,5 +15,6 @@
     <Color x:Key="Tertiary">#9FA6B2</Color>
     <Color x:Key="Danger">#D60000</Color>
     <Color x:Key="PlaceholderColor">#aac4dc</Color>
+    <Color x:Key="RefreshBGColor">#8296a9</Color>
 
 </ResourceDictionary>

@@ -94,6 +94,7 @@
             <Button
                 x:Name="AuthButton"
                 Margin="0,10,0,10"
+                IsEnabled="True"
                 Clicked="AuthButton_Clicked"
                 CornerRadius="20"
                 FontSize="14"

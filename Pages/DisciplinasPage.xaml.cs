@@ -56,7 +56,6 @@ public partial class DisciplinasPage : ContentPage
 		{
 			DisplayAlert(Translator.Instance["error"], Translator.Instance["notDelDisc"], "OK"); // Exibe mensagem de erro
 		}
-		}
 
 		Startup(); // Atualiza a lista de disciplinas
 	}
@@ -84,46 +83,46 @@ public partial class DisciplinasPage : ContentPage
 	{
 		var menuItem = sender as Button;
 
-        if (menuItem == null)
-            return;
+		if (menuItem == null)
+			return;
 
-        var disciplinaId = menuItem.CommandParameter;
+		var disciplinaId = menuItem.CommandParameter;
 
-        var modal = new NotasPage(Convert.ToInt32(disciplinaId)); // Cria a página modal para edição
+		var modal = new NotasPage(Convert.ToInt32(disciplinaId)); // Cria a página modal para edição
 
 		modal.AoFechar += Startup;
 
-        Navigation.PushModalAsync(modal); // Abre a página modal
-    }
+		Navigation.PushModalAsync(modal); // Abre a página modal
+	}
 
-    private async void SearchBtn_Clicked(object sender, EventArgs e)
-    {
-        var searchTerm = await DisplayPromptAsync(Translator.Instance["searchTitle"], Translator.Instance["searchDsc"], "OK", "Cancel", keyboard: Keyboard.Text);
+	private async void SearchBtn_Clicked(object sender, EventArgs e)
+	{
+		var searchTerm = await DisplayPromptAsync(Translator.Instance["searchTitle"], Translator.Instance["searchDsc"], "OK", "Cancel", keyboard: Keyboard.Text);
 
-        if (!string.IsNullOrWhiteSpace(searchTerm))
-        {
-            SearchDisciplinas(searchTerm);
-        }
-        else
-        {
-            Startup(); // Se o termo de busca estiver vazio, mostra todas as disciplinas novamente
-        }
-    }
+		if (!string.IsNullOrWhiteSpace(searchTerm))
+		{
+			SearchDisciplinas(searchTerm);
+		}
+		else
+		{
+			Startup(); // Se o termo de busca estiver vazio, mostra todas as disciplinas novamente
+		}
+	}
 
-    /// <summary>
-    /// Método para buscar disciplinas com base em um termo de busca.
-    /// </summary>
-    /// <param name="searchTerm">Termo de busca fornecido pelo usuário.</param>
-    private void SearchDisciplinas(string searchTerm)
-    {
-        var filteredDisciplinas = Disciplinas.Where(d => d.Sigla.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) || d.Nome.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
-        DisciplinasCollectionView.ItemsSource = filteredDisciplinas;
+	/// <summary>
+	/// Método para buscar disciplinas com base em um termo de busca.
+	/// </summary>
+	/// <param name="searchTerm">Termo de busca fornecido pelo usuário.</param>
+	private void SearchDisciplinas(string searchTerm)
+	{
+		var filteredDisciplinas = Disciplinas.Where(d => d.Sigla.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) || d.Nome.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
+		DisciplinasCollectionView.ItemsSource = filteredDisciplinas;
 		RefreshBtn.IsVisible = true;
-    }
+	}
 
-    private void RefreshBtn_Clicked(object sender, EventArgs e)
-    {
+	private void RefreshBtn_Clicked(object sender, EventArgs e)
+	{
 		Startup();
 		RefreshBtn.IsVisible = false;
-    }
+	}
 }

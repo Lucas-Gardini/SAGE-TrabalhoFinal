@@ -106,7 +106,7 @@
                 Clicked="AddNotaButton_Clicked"
                 CornerRadius="30"
                 HeightRequest="50"
-                Text="Adicionar Nota"
+                Text="{extension:TranslateExtansion Key=addNote}"
                 TextColor="#fff"
                 WidthRequest="150" />
         </StackLayout>

@@ -142,7 +142,7 @@
              x:Name="RefreshBtn"
              IsVisible="False"
              Margin="10"
-             BackgroundColor="{StaticResource PlaceholderColor}"
+             BackgroundColor="{StaticResource RefreshBGColor}"
              Clicked="RefreshBtn_Clicked"
              CornerRadius="30"
              HeightRequest="50"

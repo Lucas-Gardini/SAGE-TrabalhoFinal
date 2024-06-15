@@ -1,5 +1,7 @@
+using SAGE.Extension;
 using SAGE.Modules.Disciplinas;
 using SAGE.Modules.Generic;
+using SAGE.Modules.Usuarios;
 
 namespace SAGE.Pages;
 
@@ -25,7 +27,9 @@ public partial class NotasPage : ContentPage
 
     private void Startup()
     {
-        Notas = _notasService.GetMany(n => n.DisciplinaId == Disciplina.Id); // Obtém as notas da disciplina
+        var usuario = UsuariosService.GetUsuarioLogado();
+
+        Notas = _notasService.GetMany(n => n.DisciplinaId == Disciplina.Id && n.AlunoId == usuario.Id); // Obtém as notas da disciplina
 
         // Calcula a média a partir das notas
         foreach (var nota in Notas)
@@ -47,9 +51,11 @@ public partial class NotasPage : ContentPage
 
     private async void AddNotaButton_Clicked(object sender, EventArgs e)
     {
+        var usuario = UsuariosService.GetUsuarioLogado();
+
         // Abre um alerta de input e solicita a nota do aluno
-        var nota = await DisplayPromptAsync("Nota", "Digite a nota do aluno", "OK", "Cancelar", keyboard: Keyboard.Numeric);
-        var isProva = await DisplayAlert("Prova", "A nota é de uma prova?", "Sim", "Não");
+        var nota = await DisplayPromptAsync(Translator.Instance["Grade"], Translator.Instance["entryGrade"], "OK", Translator.Instance["cancel"], keyboard: Keyboard.Numeric);
+        var isProva = await DisplayAlert(Translator.Instance["test"], Translator.Instance["isTest"], Translator.Instance["yes"], Translator.Instance["no"]);
 
         if (nota == null)
             return;
@@ -60,13 +66,14 @@ public partial class NotasPage : ContentPage
             {
                 DisciplinaId = Disciplina.Id,
                 Nota = Convert.ToDouble(nota),
-                Prova = isProva
+                Prova = isProva,
+                AlunoId = usuario.Id,
             });
 
             Startup();
         } catch (Exception)
         {
-            await DisplayAlert("Erro", "Não foi possível adicionar a nota", "OK");
+            await DisplayAlert(Translator.Instance["error"], Translator.Instance["noAddGrade"], "OK");
         }
     }
     private async void CloseButton_Clicked(object sender, EventArgs e)
@@ -80,7 +87,7 @@ public partial class NotasPage : ContentPage
         if (tappedEventArgs.Parameter is int notaId)
         {
             // Pergunta ao usuário se ele deseja excluir a nota
-            var confirm = await DisplayAlert("Excluir", "Deseja excluir a nota?", "Sim", "Não");
+            var confirm = await DisplayAlert(Translator.Instance["delete"], Translator.Instance["wantDeleteGrade"], Translator.Instance["yes"], Translator.Instance["no"]);
 
             if (!confirm)
                 return;
@@ -91,7 +98,7 @@ public partial class NotasPage : ContentPage
                 Startup();
             } catch
             {
-                await DisplayAlert("Erro", "Não foi possível excluir a nota", "OK");
+                await DisplayAlert(Translator.Instance["error"], Translator.Instance["noDeleteGrade"], "OK");
             }
         }
     }
