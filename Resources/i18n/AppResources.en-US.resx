@@ -156,11 +156,17 @@
   <data name="disciplinesList" xml:space="preserve">
     <value>Disciplines List</value>
   </data>
+  <data name="dontHaveAnAccount" xml:space="preserve">
+    <value>Don't have an account?</value>
+  </data>
   <data name="en" xml:space="preserve">
     <value>English</value>
   </data>
   <data name="enter" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="naAccount" xml:space="preserve">
     <value>Don't have an account?</value>
@@ -170,6 +176,9 @@
   </data>
   <data name="nameDisc" xml:space="preserve">
     <value>Name:</value>
+  </data>
+  <data name="notesList" xml:space="preserve">
+    <value>Notas</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>

@@ -10,7 +10,6 @@ public partial class DisciplinasPage : ContentPage
 	List<Disciplina> Disciplinas { get; set; } = new();
 
 	private readonly UsuariosService _usuariosService = new();
-	private Usuario professor { get; set; }
 
 	public DisciplinasPage()
 	{
@@ -79,31 +78,21 @@ public partial class DisciplinasPage : ContentPage
 		Navigation.PushModalAsync(modal); // Abre a página modal
 	}
 
-	/// <summary>
-	/// Método acionado quando a label com id do professor é carregada
-	/// e a transforma no nome do professor.
-	/// </summary>
-	private void CarregaNomeProfessor(object sender, EventArgs e)
+	private void OnNotasItem_Clicked(object sender, EventArgs e)
 	{
-		var label = sender as Label;
+		var menuItem = sender as Button;
 
-		if (label == null)
-			return;
+        if (menuItem == null)
+            return;
 
-		var disciplinaId = label.BindingContext as Disciplina;
+        var disciplinaId = menuItem.CommandParameter;
 
-		if (disciplinaId == null)
-			return;
+        var modal = new NotasPage(Convert.ToInt32(disciplinaId)); // Cria a página modal para edição
 
-		professor = _usuariosService.GetOne(u => u.Id == disciplinaId.ProfessorId); // Busca o professor da disciplina
+		modal.AoFechar += Startup;
 
-		// Verifica se o professor foi encontrado
-		if (professor != null) {
-			label.Text = professor.Nome; // Exibe o nome do professor
-		} else {
-			label.Text = "Professor não encontrado";
-		}
-	}
+        Navigation.PushModalAsync(modal); // Abre a página modal
+    }
 
     private void DisciplinasCollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
     {

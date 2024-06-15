@@ -16,9 +16,6 @@ public partial class AppShell : Shell
             // Atualize o conteúdo da página aqui
             this.AtualizarTitulosAba();
         });
-
-        if (UsuariosService.GetUsuarioLogado()?.IsAdmin == true)
-			UsersTab.IsVisible = true;
     }
 
     private void AtualizarTitulosAba()
@@ -26,5 +23,4 @@ public partial class AppShell : Shell
         // Obtém a cultura atual
         var culture = Translator.Instance.Culture ?? CultureInfo.CurrentCulture;
     }
-
 }

@@ -43,7 +43,7 @@
 		<MauiIcon Include="Resources\AppIcon\ic_launcher_background.png" ForegroundFile="Resources\AppIcon\ic_launcher_foreground.png" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.png" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\app_splash.png" Color="#14A44D" BaseSize="64,64" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -90,6 +90,9 @@
 	  <MauiXaml Update="AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="LoadingModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\ConfigPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -102,10 +105,10 @@
 	  <MauiXaml Update="Pages\DisciplinasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\IndexPage.xaml">
+	  <MauiXaml Update="Pages\LogoutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\UsuariosPage.xaml">
+	  <MauiXaml Update="Pages\NotasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Themes\DarkTheme.xaml">

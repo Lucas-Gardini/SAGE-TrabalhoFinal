@@ -3,129 +3,144 @@
     x:Class="SAGE.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extension="clr-namespace:SAGE.Extension"
+    xmlns:local="clr-namespace:SAGE.Controls"
+    BackgroundColor="{DynamicResource BackgroundColor}"
     NavigationPage.HasBackButton="False"
-    NavigationPage.HasNavigationBar="False"
-    xmlns:extension ="clr-namespace:SAGE.Extension"
-    BackgroundColor="{DynamicResource BackgroundColor}">
+    NavigationPage.HasNavigationBar="False">
 
-    <!--  Background Image  -->
-        <!--<Image
-            Aspect="AspectFill"
-            HorizontalOptions="FillAndExpand"
-            Source="wave_background.png"
-            VerticalOptions="FillAndExpand" />-->
-
-    <StackLayout
+    <ScrollView>
+        <VerticalStackLayout
             x:Name="AuthPage"
             Padding="20"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="CenterAndExpand">
 
-        <Label
+            <Label
                 FontSize="24"
                 HorizontalOptions="Center"
                 Text="{extension:TranslateExtansion Key=welcome}"
                 TextColor="{DynamicResource TextColor}" />
 
-        <Label
+            <Label
+                Margin="0,10,0,30"
                 FontSize="14"
                 HorizontalOptions="Center"
-                Margin="0, 10, 0, 30"
                 Text="{extension:TranslateExtansion Key=welcomeMsg}"
                 TextColor="{DynamicResource TextColor}" />
 
-        <Label
+            <Label
+                Margin="25"
                 FontSize="16"
                 HorizontalOptions="Center"
-                Margin="25"
                 Text="Login"
                 TextColor="{DynamicResource TextColor}" />
 
-        <Entry
+            <Entry
                 x:Name="UsernameEntry"
                 Margin="0,20,0,10"
-                FontSize="12"
-                ClearButtonVisibility="WhileEditing"
                 BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                IsTextPredictionEnabled="True"   
-                PlaceholderColor="{StaticResource PlaceholderColor}"
-                TextColor="White"
-                ReturnType="Next"
+                ClearButtonVisibility="WhileEditing"
+                FontSize="12"
                 HorizontalOptions="FillAndExpand"
-                Placeholder="{extension:TranslateExtansion Key=user}" />
+                IsTextPredictionEnabled="True"
+                Placeholder="{extension:TranslateExtansion Key=user}"
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                ReturnType="Next"
+                TextColor="White" />
 
-        <Entry
+            <Entry
                 x:Name="PasswordEntry"
                 Margin="0,10,0,15"
+                BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                ClearButtonVisibility="WhileEditing"
                 Completed="AuthButton_Clicked"
                 FontSize="12"
-                ClearButtonVisibility="WhileEditing"
-                BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                PlaceholderColor="{StaticResource PlaceholderColor}"
-                TextColor="White"
                 HorizontalOptions="FillAndExpand"
                 IsPassword="True"
                 Placeholder="{extension:TranslateExtansion Key=password}"
-                ReturnType="Done" />
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                ReturnType="Done"
+                TextColor="White" />
 
-        <HorizontalStackLayout HorizontalOptions="FillAndExpand">
-            <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />
-            <Label
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />
+                <Label
                     Text="{extension:TranslateExtansion Key=rememberMe}"
                     TextColor="{DynamicResource TextColor}"
                     VerticalOptions="Center" />
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
 
-        <HorizontalStackLayout Margin="0,5,0,10">
-            <Button Text="{extension:TranslateExtansion Key=noAccount}" BackgroundColor="Transparent" TextColor="CornflowerBlue" x:Name="CreateNewAccountBtn"/>
-        </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                <Label
+                    Text="{extension:TranslateExtansion Key=dontHaveAnAccount}"
+                    TextColor="{DynamicResource TextColor}"
+                    TextDecorations="Underline"
+                    VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCreateNewUser" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
 
-        <Button
+            <HorizontalStackLayout Margin="0,5,0,10">
+                <Button
+                    x:Name="CreateNewAccountBtn"
+                    BackgroundColor="Transparent"
+                    Text="{extension:TranslateExtansion Key=noAccount}"
+                    TextColor="CornflowerBlue" />
+            </HorizontalStackLayout>
+
+            <Button
                 x:Name="AuthButton"
                 Margin="0,10,0,10"
                 Clicked="AuthButton_Clicked"
+                CornerRadius="20"
                 FontSize="14"
                 HorizontalOptions="Center"
-                WidthRequest="210"
-                CornerRadius="20"
                 Text="{extension:TranslateExtansion Key=enter}"
-                TextColor="White" />
+                TextColor="White"
+                WidthRequest="210" />
 
-        <Button
+            <Button
                 x:Name="ClearDBButton"
                 BackgroundColor="red"
                 Clicked="ClearDBButton_Clicked"
+                CornerRadius="20"
                 FontSize="14"
                 HorizontalOptions="Center"
-                WidthRequest="210"
-                CornerRadius="20"
                 Text="{extension:TranslateExtansion Key=clearDB}"
-                TextColor="White" />
+                TextColor="White"
+                WidthRequest="210" />
 
-        <Grid VerticalOptions="Center" ColumnDefinitions="Auto, *, Auto">
-            <Button 
-                BackgroundColor="Transparent"
-                BorderWidth="1"
-                x:Name="ChangeThemeBtn"
-                Clicked="ChangeThemeBtn_Clicked"
-                BorderColor="{DynamicResource PlaceholderColor}"
-                TextColor="{DynamicResource TextColor}"
-                CornerRadius="20"
-                Margin="0,35,5,0"
-                Text="{extension:TranslateExtansion Key=changeTheme}"/>
+            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center">
+                <Button
+                    x:Name="ChangeThemeBtn"
+                    Margin="0,35,5,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{DynamicResource PlaceholderColor}"
+                    BorderWidth="1"
+                    Clicked="ChangeThemeBtn_Clicked"
+                    CornerRadius="20"
+                    Text="{extension:TranslateExtansion Key=changeTheme}"
+                    TextColor="{DynamicResource TextColor}" />
 
-            <Button 
-                Grid.Column="2"
-                BackgroundColor="Transparent"
-                BorderWidth="1"
-                x:Name="ChangeLangBtn"
-                Clicked="ChangeLangBtn_Clicked"
-                BorderColor="{DynamicResource PlaceholderColor}"
-                TextColor="{DynamicResource TextColor}"
-                CornerRadius="20"
-                Margin="5,35,0,0"
-                Text="{extension:TranslateExtansion Key=currentLang}"/>
-        </Grid>
+                <Button
+                    x:Name="ChangeLangBtn"
+                    Grid.Column="2"
+                    Margin="5,35,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{DynamicResource PlaceholderColor}"
+                    BorderWidth="1"
+                    Clicked="ChangeLangBtn_Clicked"
+                    CornerRadius="20"
+                    Text="{extension:TranslateExtansion Key=currentLang}"
+                    TextColor="{DynamicResource TextColor}" />
+            </Grid>
 
-    </StackLayout>
+            <!--  Loading Modal  -->
+            <local:LoadingModal x:Name="LoadingModal" />
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

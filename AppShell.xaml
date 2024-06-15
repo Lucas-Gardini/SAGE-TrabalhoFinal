@@ -3,31 +3,36 @@
     x:Class="SAGE.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extension="clr-namespace:SAGE.Extension"
     xmlns:local="clr-namespace:SAGE"
-    xmlns:extension ="clr-namespace:SAGE.Extension"
     xmlns:pages="clr-namespace:SAGE.Pages"
     NavigationPage.HasBackButton="False"
     NavigationPage.HasNavigationBar="False"
     Shell.FlyoutBehavior="Disabled">
     <TabBar>
-        <Tab x:Name="HomeTab" Title="{extension:TranslateExtansion Key=tabHome}" Icon="home.png">
+        <!--<Tab x:Name="HomeTab" Title="{extension:TranslateExtansion Key=tabHome}" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate pages:IndexPage}" />
-        </Tab>
+        </Tab>-->
 
-        <Tab x:Name="DisciTab" Title="{extension:TranslateExtansion Key=tabDisciplines}" Icon="graduation.png">
+        <Tab
+            x:Name="DisciTab"
+            Title="{extension:TranslateExtansion Key=tabDisciplines}"
+            Icon="graduation.png">
             <ShellContent ContentTemplate="{DataTemplate pages:DisciplinasPage}" />
         </Tab>
 
         <Tab
-            x:Name="UsersTab"
-            Title="{extension:TranslateExtansion Key=tabUsers}"
-            Icon="team.png"
-            IsVisible="True">
-            <ShellContent ContentTemplate="{DataTemplate pages:UsuariosPage}" />
+            x:Name="SettingsTab"
+            Title="{extension:TranslateExtansion Key=config}"
+            Icon="settings.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:ConfigPage}" />
         </Tab>
 
-        <Tab x:Name="SettingsTab" Title="{extension:TranslateExtansion Key=config}" Icon="settings.png">
-            <ShellContent ContentTemplate="{DataTemplate pages:ConfigPage}" />
+        <Tab
+            x:Name="SairTab"
+            Title="{extension:TranslateExtansion Key=logout}"
+            Icon="logout.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:LogoutPage}" />
         </Tab>
 
     </TabBar>

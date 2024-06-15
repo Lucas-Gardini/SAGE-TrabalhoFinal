@@ -36,6 +36,11 @@ namespace SAGE.Modules.Usuarios
             return usuarioLogado;
         }
 
+        public static void Logout()
+        {
+            usuarioLogado = new Usuario();
+        }
+
         /// <summary>
         /// Cria recursos padrão para a tabela de usuários.
         /// </summary>
@@ -46,7 +51,6 @@ namespace SAGE.Modules.Usuarios
                 Identificador = "000000",
                 Nome = "Master",
                 Senha = BCrypt.Net.BCrypt.HashPassword("123456"),
-                IsAdmin = true
             });
         }
 

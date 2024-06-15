@@ -1,7 +1,5 @@
 using SAGE.Modules.Usuarios;
-using Microsoft.Maui.Controls;
-using System.Globalization;
-using SAGE.Extension;
+
 
 namespace SAGE.Pages
 {
@@ -27,19 +25,8 @@ namespace SAGE.Pages
             Usuario = new Usuario(); // Inicializa um novo usuário
             BindingContext = this;
             AoFechar = () => { }; // Define o evento de fechamento como um método vazio
-
-            MessagingCenter.Subscribe<ConfigPage>(this, "LanguageChanged", (sender) =>
-            {
-                // Atualize o conteúdo da página aqui
-                this.Atualizar();
-            });
         }
 
-        private void Atualizar()
-        {
-            // Obtém a cultura atual
-            var culture = Translator.Instance.Culture ?? CultureInfo.CurrentCulture;
-        }
 
         /// <summary>
         /// Construtor para editar um usuário existente.
@@ -50,7 +37,6 @@ namespace SAGE.Pages
             InitializeComponent();
             Usuario = _usuariosService.GetOne(u => u.Id == id)!; // Obtém o usuário pelo ID
             NomeEntry.Text = Usuario.Nome;
-            IsAdminSwitch.IsToggled = Usuario.IsAdmin;
             BindingContext = this;
             AoFechar = () => { }; // Define o evento de fechamento como um método vazio
         }
@@ -70,7 +56,6 @@ namespace SAGE.Pages
         {
             Usuario.Nome = NomeEntry.Text;
             Usuario.Senha = SenhaEntry.Text;
-            Usuario.IsAdmin = IsAdminSwitch.IsToggled;
 
             if (string.IsNullOrWhiteSpace(Usuario.Nome))
             {
@@ -87,7 +72,9 @@ namespace SAGE.Pages
                         await DisplayAlert("Erro", "Por favor, preencha todos os campos obrigatórios.", "OK");
                         return;
                     }
-                    _usuariosService.InsertOne(Usuario); // Adiciona um novo usuário
+                    var usuarioCriado = _usuariosService.InsertOne(Usuario); // Adiciona um novo usuário
+
+                    await DisplayAlert("Sucesso", $"Identificador do usuário: {usuarioCriado.Identificador}. Use ele como login!", "OK");
                 } else
                 {
                     if (!string.IsNullOrWhiteSpace(Usuario.Senha))
@@ -95,9 +82,17 @@ namespace SAGE.Pages
 
                     _usuariosService.UpdateOne(Usuario); // Atualiza o usuário existente
                 }
-                await DisplayAlert("Sucesso", "Usuário salvo com sucesso!", "OK");
+
                 AoFechar?.Invoke(); // Invoca o evento de fechamento
-                await Navigation.PopModalAsync(); // Fecha a página modal
+                
+                try
+                {
+                    await Navigation.PopModalAsync(); // Fecha a página modal
+                } catch
+                {
+                    await Navigation.PopAsync(); // Fecha a página
+                }
+
             } catch (Exception ex)
             {
                 await DisplayAlert("Erro", $"Falha ao salvar usuário: {ex.Message}", "OK");

@@ -68,12 +68,14 @@ namespace SAGE.Modules.Generic
         /// Insere uma entidade no banco de dados.
         /// </summary>
         /// <param name="entity">Entidade a ser inserida.</param>
-        public void InsertOne(T entity)
+        public T InsertOne(T entity)
         {
             using var connection = new SQLiteConnection(this.DbPath);
             BeforeInsert(entity);
             connection.Insert(entity);
             AfterInsert(entity);
+
+            return entity;
         }
 
         /// <summary>

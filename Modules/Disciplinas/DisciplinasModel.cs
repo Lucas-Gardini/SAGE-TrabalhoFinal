@@ -1,5 +1,4 @@
 ﻿using SQLite;
-using System.ComponentModel;
 
 namespace SAGE.Modules.Disciplinas
 {
@@ -15,7 +14,7 @@ namespace SAGE.Modules.Disciplinas
         [MaxLength(100), NotNull]
         public string Nome { get; set; } = "";
 
-        [NotNull]
-        public int ProfessorId { get; set; }
+        [MaxLength(100), NotNull]
+        public string Professor { get; set; } = "";
     }
 }

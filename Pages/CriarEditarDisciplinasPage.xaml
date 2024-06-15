@@ -1,86 +1,98 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-  x:Class="SAGE.Pages.CriarEditarDisciplinasPage"
-  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:extension="clr-namespace:SAGE.Extension"
-  NavigationPage.HasBackButton="False"
-  BackgroundColor="{DynamicResource BackgroundColor}">
-  <Grid>
-    <!--  Botão Flutuante com ícone  -->
-    <Button
-      x:Name="CloseButton"
-      Margin="10"
-      WidthRequest="50"
-      HeightRequest="50"
-      BackgroundColor="{DynamicResource Danger}"
-      Clicked="CloseButton_Clicked"
-      CornerRadius="30"
-      HorizontalOptions="End"
-      VerticalOptions="Start"
-      ZIndex="9">
-      <Button.ImageSource>
-        <FileImageSource File="x.png" />
-      </Button.ImageSource>
-    </Button>
+    x:Class="SAGE.Pages.CriarEditarDisciplinasPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extension="clr-namespace:SAGE.Extension"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <!--  Botão Flutuante com ícone  -->
+        <Button
+            x:Name="CloseButton"
+            Margin="10"
+            BackgroundColor="{DynamicResource Danger}"
+            Clicked="CloseButton_Clicked"
+            CornerRadius="30"
+            HeightRequest="50"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            WidthRequest="50"
+            ZIndex="9">
+            <Button.ImageSource>
+                <FileImageSource File="x.png" />
+            </Button.ImageSource>
+        </Button>
 
-    <!--  Layout principal da página  -->
-    <VerticalStackLayout Margin="0, 50, 0, 0" Padding="20" Spacing="20">
-      <Label
-        FontSize="20"
-        HorizontalOptions="Center"
-        TextColor="{DynamicResource TextColor}"
-        Text="{extension:TranslateExtansion Key=createAndEditDisc}" />
+        <!--  Layout principal da página  -->
+        <VerticalStackLayout
+            Margin="0,50,0,0"
+            Padding="20"
+            Spacing="20">
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="{extension:TranslateExtansion Key=createAndEditDisc}"
+                TextColor="{DynamicResource TextColor}" />
 
-      <!--  Nome  -->
-      <VerticalStackLayout Spacing="10">
-        <Label 
-            Text="{extension:TranslateExtansion Key=name}" 
-            VerticalOptions="Center" 
-            TextColor="{DynamicResource TextColor}"/>
-        <Entry
-          x:Name="NomeEntry"
-          Placeholder="ex: Matemática"
-          MaxLength="18"
-          PlaceholderColor="{DynamicResource PlaceholderColor}"
-          BackgroundColor="{DynamicResource EntryBackgroundColor}"
-          HeightRequest="40"
-          VerticalOptions="Center" />
-      </VerticalStackLayout>
-
-      <!--  Sigla  -->
+            <!--  Nome  -->
             <VerticalStackLayout Spacing="10">
-        <Label 
-            Text="{extension:TranslateExtansion Key=acronym}" 
-            VerticalOptions="Center" 
-            TextColor="{DynamicResource TextColor}"/>
-        <Entry
-          x:Name="SiglaEntry"
-          Placeholder="ex: MAT"
-          MaxLength="4"
-          HeightRequest="40"
-          PlaceholderColor="{DynamicResource PlaceholderColor}"
-          BackgroundColor="{DynamicResource EntryBackgroundColor}"
-          VerticalOptions="Center" />
-      </VerticalStackLayout>
+                <Label
+                    Text="{extension:TranslateExtansion Key=name}"
+                    TextColor="{DynamicResource TextColor}"
+                    VerticalOptions="Center" />
+                <Entry
+                    x:Name="NomeEntry"
+                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                    HeightRequest="40"
+                    MaxLength="18"
+                    Placeholder="ex: Matemática"
+                    PlaceholderColor="{DynamicResource PlaceholderColor}"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>
 
-      <!--  Professor  -->
+            <!--  Sigla  -->
             <VerticalStackLayout Spacing="10">
-        <Label 
-            Text="{extension:TranslateExtansion Key=teacher}" 
-            VerticalOptions="Center" 
-            TextColor="{DynamicResource TextColor}"/>
-        <Picker x:Name="ProfessoresPicker" HeightRequest="40" TextColor="White" BackgroundColor="{DynamicResource EntryBackgroundColor}">
-          <Picker.ItemsSource>
-            <x:Array Type="{x:Type x:String}" />
-          </Picker.ItemsSource>
-        </Picker>
-      </VerticalStackLayout>
+                <Label
+                    Text="{extension:TranslateExtansion Key=acronym}"
+                    TextColor="{DynamicResource TextColor}"
+                    VerticalOptions="Center" />
+                <Entry
+                    x:Name="SiglaEntry"
+                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                    HeightRequest="40"
+                    MaxLength="4"
+                    Placeholder="ex: MAT"
+                    PlaceholderColor="{DynamicResource PlaceholderColor}"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>
 
-      <!--  Botões de Ação  -->
-      <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-        <Button Clicked="OnSaveClicked" HeightRequest="45" WidthRequest="68" Text="{extension:TranslateExtansion Key=save}" TextColor="White" BackgroundColor="{DynamicResource Primary}"/>
-      </HorizontalStackLayout>
-    </VerticalStackLayout>
-  </Grid>
+            <!--  Professor  -->
+            <VerticalStackLayout Spacing="10">
+                <Label
+                    Text="{extension:TranslateExtansion Key=teacher}"
+                    TextColor="{DynamicResource TextColor}"
+                    VerticalOptions="Center" />
+                <Entry
+                    x:Name="ProfessorEntry"
+                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                    HeightRequest="40"
+                    Placeholder="ex: Jhonatan Galante"
+                    PlaceholderColor="{DynamicResource PlaceholderColor}"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!--  Botões de Ação  -->
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                <Button
+                    BackgroundColor="{DynamicResource Primary}"
+                    Clicked="OnSaveClicked"
+                    HeightRequest="45"
+                    Text="{extension:TranslateExtansion Key=save}"
+                    TextColor="White"
+                    WidthRequest="68" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

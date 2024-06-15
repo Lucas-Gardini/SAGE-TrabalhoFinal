@@ -3,22 +3,23 @@
     x:Class="SAGE.Pages.CriarEditarUsuariosPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:extension ="clr-namespace:SAGE.Extension"
+    xmlns:extension="clr-namespace:SAGE.Extension"
+    BackgroundColor="{DynamicResource BackgroundColor}"
     NavigationPage.HasBackButton="False"
-    BackgroundColor="{DynamicResource BackgroundColor}">
+    NavigationPage.HasNavigationBar="False">
     <Grid>
         <!--  Botão Flutuante com ícone  -->
         <Button
             x:Name="CloseButton"
             Margin="10"
+            BackgroundColor="{DynamicResource Danger}"
             Clicked="CloseButton_Clicked"
             CornerRadius="30"
-            HorizontalOptions="End"
-            BackgroundColor="{DynamicResource Danger}"
-            WidthRequest="50"
             HeightRequest="50"
+            HorizontalOptions="End"
             TextColor="White"
             VerticalOptions="Start"
+            WidthRequest="50"
             ZIndex="9">
             <Button.ImageSource>
                 <FileImageSource File="x.png" />
@@ -26,12 +27,15 @@
         </Button>
 
         <!--  Layout principal da página  -->
-        <VerticalStackLayout Margin="0, 50, 0, 0" Padding="20" Spacing="20">
+        <VerticalStackLayout
+            Margin="0,50,0,0"
+            Padding="20"
+            Spacing="20">
             <Label
                 FontSize="20"
                 HorizontalOptions="Center"
-                TextColor="{DynamicResource TextColor}"
-                Text="{extension:TranslateExtansion Key=createAndEditUser}" />
+                Text="{extension:TranslateExtansion Key=createAndEditUser}"
+                TextColor="{DynamicResource TextColor}" />
 
             <!--  Identificador  -->
             <!--<VerticalStackLayout>
@@ -44,42 +48,43 @@
 
             <!--  Nome  -->
             <VerticalStackLayout Spacing="10">
-                <Label Text="{extension:TranslateExtansion Key=name}" VerticalOptions="Center" TextColor="{DynamicResource TextColor}"/>
+                <Label
+                    Text="{extension:TranslateExtansion Key=name}"
+                    TextColor="{DynamicResource TextColor}"
+                    VerticalOptions="Center" />
                 <Entry
                     x:Name="NomeEntry"
-                    MaxLength="22"
-                    Placeholder="ex: Lucas Dias de Oliveira Taiânes"
-                    VerticalOptions="Center" 
-                    HeightRequest="40"
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    PlaceholderColor="{DynamicResource PlaceholderColor}"/>
+                    HeightRequest="40"
+                    MaxLength="22"
+                    Placeholder="ex: Lucas Dias de Oliveira Nery"
+                    PlaceholderColor="{DynamicResource PlaceholderColor}"
+                    VerticalOptions="Center" />
             </VerticalStackLayout>
 
             <!--  Senha  -->
             <VerticalStackLayout Spacing="10">
-                <Label Text="{extension:TranslateExtansion Key=password}" VerticalOptions="Center" TextColor="{DynamicResource TextColor}"/>
+                <Label
+                    Text="{extension:TranslateExtansion Key=password}"
+                    TextColor="{DynamicResource TextColor}"
+                    VerticalOptions="Center" />
                 <Entry
                     x:Name="SenhaEntry"
+                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                    HeightRequest="40"
                     IsPassword="True"
                     Placeholder="******"
-                    HeightRequest="40"
-                    VerticalOptions="Center" 
-                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    PlaceholderColor="{DynamicResource PlaceholderColor}"/>
+                    PlaceholderColor="{DynamicResource PlaceholderColor}"
+                    VerticalOptions="Center" />
             </VerticalStackLayout>
-
-            <!--  Administrador  -->
-            <StackLayout
-                HorizontalOptions="Center"
-                Orientation="Horizontal"
-                Spacing="20">
-                <Label Text="{extension:TranslateExtansion Key=admin}" VerticalOptions="Center" TextColor="{DynamicResource TextColor}"/>
-                <Switch x:Name="IsAdminSwitch" VerticalOptions="Center" />
-            </StackLayout>
 
             <!--  Botões de Ação  -->
             <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-                <Button Clicked="OnSaveClicked" Text="{extension:TranslateExtansion Key=save}" TextColor="White" BackgroundColor="{DynamicResource Primary}"/>
+                <Button
+                    BackgroundColor="{DynamicResource Primary}"
+                    Clicked="OnSaveClicked"
+                    Text="{extension:TranslateExtansion Key=save}"
+                    TextColor="White" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>

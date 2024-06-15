@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SAGE.Resources.Styles.Themes.DarkTheme">
+<ResourceDictionary
+    x:Class="SAGE.Resources.Styles.Themes.DarkTheme"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Color x:Key="BackgroundColor">#212225</Color>
     <Color x:Key="TextColor">#fff</Color>
     <Color x:Key="EntryBackgroundColor">#43454b</Color>
     <Color x:Key="Primary">#14A44D</Color>
     <Color x:Key="PrimaryDark">#14A44D</Color>
-    <Color x:Key="PrimaryDarkText">#242424</Color>
+    <Color x:Key="PrimaryDarkText">#231324</Color>
     <Color x:Key="Secondary">#512BD4</Color>
     <Color x:Key="SecondaryDarkText">#512BD4</Color>
     <Color x:Key="Tertiary">#9FA6B2</Color>

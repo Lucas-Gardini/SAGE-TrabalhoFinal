@@ -178,6 +178,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não tem uma conta?.
+        /// </summary>
+        internal static string dontHaveAnAccount {
+            get {
+                return ResourceManager.GetString("dontHaveAnAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Inglês.
         /// </summary>
         internal static string en {
@@ -192,6 +201,15 @@ namespace SAGE.Resources.i18n {
         internal static string enter {
             get {
                 return ResourceManager.GetString("enter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Sair.
+        /// </summary>
+        internal static string logout {
+            get {
+                return ResourceManager.GetString("logout", resourceCulture);
             }
         }
         
@@ -219,6 +237,15 @@ namespace SAGE.Resources.i18n {
         internal static string nameDisc {
             get {
                 return ResourceManager.GetString("nameDisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Notas.
+        /// </summary>
+        internal static string notesList {
+            get {
+                return ResourceManager.GetString("notesList", resourceCulture);
             }
         }
         

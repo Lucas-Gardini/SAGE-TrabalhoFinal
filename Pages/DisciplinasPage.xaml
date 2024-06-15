@@ -1,142 +1,156 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-  x:Class="SAGE.Pages.DisciplinasPage"
-  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:extension="clr-namespace:SAGE.Extension"
-  NavigationPage.HasBackButton="False"
-  BackgroundColor="{DynamicResource BackgroundColor}">
-  <Grid>
-    <!--  Layout principal da página  -->
-    <VerticalStackLayout Margin="0,0,0,75">
-      <Label
-        Margin="0,30,0,50"
-        FontSize="Large"
-        HorizontalOptions="Center"
-        Text="{extension:TranslateExtansion Key=disciplinesList}"
-        TextColor="{DynamicResource TextColor}"
-        VerticalOptions="Center" />
+    x:Class="SAGE.Pages.DisciplinasPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extension="clr-namespace:SAGE.Extension"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <Grid>
 
-      <CollectionView
-        x:Name="DisciplinasCollectionView"
-        Scrolled="DisciplinasCollectionView_Scrolled"
-        ItemsSource="{Binding Disciplinas}"
-        VerticalScrollBarVisibility="Always">
-        <CollectionView.ItemTemplate>
-          <DataTemplate>
-            <Grid
-              Padding="10"
-              ColumnDefinitions="90,*,40,40"
-              RowDefinitions="60, 50, 50, 50"
-              ColumnSpacing="5">
-              <BoxView BackgroundColor="{DynamicResource EntryBackgroundColor}" Grid.RowSpan="4" Grid.ColumnSpan="5" CornerRadius="10"/>
-              
-              <Label
-               Grid.Column="0"
-               Grid.Row="1"
-               VerticalTextAlignment="Center"
-               HorizontalTextAlignment="Center"
-               FontSize="15"
-               FontAttributes="Bold"
-               TextColor="{StaticResource White}"
-               Text="{extension:TranslateExtansion Key=nameDisc}" />
-              
-              <Label
-                Grid.Column="1"
-                Grid.ColumnSpan="3"
-                Grid.Row="1"
-                VerticalTextAlignment="Center"
-                MaxLines="2"
-                Text="{Binding Nome}"
-                TextColor="{StaticResource White}"
-                VerticalOptions="Center" />
 
-              <Label
-                Grid.Column="0"
-                Grid.Row="2"
-                FontAttributes="Bold"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Center"
-                FontSize="15"
-                TextColor="{DynamicResource White}"
-                Text="{extension:TranslateExtansion Key=acronymDisc}" />
 
-              <Label
-                Grid.Column="1"
-                Grid.Row="2"
-                VerticalTextAlignment="Center"
-                Text="{Binding Sigla}"
-                TextColor="{StaticResource White}"
-                VerticalOptions="Center" />
+        <!--  Adicionando ScrollView ao redor da CollectionView  -->
+        <ScrollView>
+            <CollectionView
+                x:Name="DisciplinasCollectionView"
+                ItemsSource="{Binding Disciplinas}"
+                Scrolled="DisciplinasCollectionView_Scrolled"
+                VerticalScrollBarVisibility="Always">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="10"
+                            ColumnDefinitions="90,*,40,40"
+                            ColumnSpacing="5"
+                            RowDefinitions="60, 50, 50, 50">
+                            <BoxView
+                                Grid.RowSpan="4"
+                                Grid.ColumnSpan="5"
+                                BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                                CornerRadius="10" />
 
-              <Label
-                Grid.Column="0"
-                Grid.Row="3"
-                FontAttributes="Bold"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Center"
-                FontSize="15"
-                TextColor="{DynamicResource White}"
-                Text="{extension:TranslateExtansion Key=teacherDisc}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                Text="{extension:TranslateExtansion Key=nameDisc}"
+                                TextColor="{StaticResource White}"
+                                VerticalTextAlignment="Center" />
 
-              <Label
-                Grid.Column="1"
-                Grid.ColumnSpan="3"
-                Grid.Row="3"
-                VerticalTextAlignment="Center"
-                Loaded="CarregaNomeProfessor"
-                Text="{Binding ProfessorId}"
-                TextColor="{StaticResource White}"
-                VerticalOptions="Center" />
-                
-              <Button
-                Grid.Column="2"
-                Grid.Row="0"
-                HeightRequest="48"
-                WidthRequest="48"
-                CornerRadius="50"
-                Margin="0, 0, 40, 0"
-                BackgroundColor="{DynamicResource Secondary}"
-                Clicked="OnEditItem_Clicked"
-                CommandParameter="{Binding Id}">
-                <Button.ImageSource>
-                  <FileImageSource File="pencil.png" />
-                </Button.ImageSource>
-              </Button>
-              <Button
-                Grid.Column="4"
-                Grid.Row="0"
-                HeightRequest="48"
-                WidthRequest="48"
-                CornerRadius="50"
-                Margin="0, 0, 20, 0"
-                BackgroundColor="{DynamicResource Danger}"
-                Clicked="OnDeleteItem_Clicked"
-                CommandParameter="{Binding Id}">
-                <Button.ImageSource>
-                  <FileImageSource File="trash.png" />
-                </Button.ImageSource>
-              </Button>
-            </Grid>
-          </DataTemplate>
-        </CollectionView.ItemTemplate>
-      </CollectionView>
-    </VerticalStackLayout>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="3"
+                                MaxLines="2"
+                                Text="{Binding Nome}"
+                                TextColor="{StaticResource White}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
 
-    <!--  Botão Flutuante com ícone  -->
-    <Button
-      x:Name="FabButton"
-      Margin="10"
-      Clicked="FabButton_Clicked"
-      CornerRadius="30"
-      HeightRequest="50"
-      HorizontalOptions="End"
-      VerticalOptions="End"
-      BackgroundColor="{StaticResource Primary}"
-      WidthRequest="50">
-      <Button.ImageSource>
-        <FileImageSource File="add.png" />
-      </Button.ImageSource>
-    </Button>
-  </Grid>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                Text="{extension:TranslateExtansion Key=acronymDisc}"
+                                TextColor="{DynamicResource White}"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding Sigla}"
+                                TextColor="{StaticResource White}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                Text="{extension:TranslateExtansion Key=teacherDisc}"
+                                TextColor="{DynamicResource White}"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="3"
+                                Text="{Binding Professor}"
+                                TextColor="{StaticResource White}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+
+                            <Button
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="-30,0,0,0"
+                                BackgroundColor="{DynamicResource Tertiary}"
+                                Clicked="OnNotasItem_Clicked"
+                                CommandParameter="{Binding Id}"
+                                CornerRadius="50"
+                                HeightRequest="48"
+                                WidthRequest="48">
+                                <Button.ImageSource>
+                                    <FileImageSource File="chapeu.png" />
+                                </Button.ImageSource>
+                            </Button>
+
+                            <Button
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Margin="0,0,40,0"
+                                BackgroundColor="{DynamicResource Secondary}"
+                                Clicked="OnEditItem_Clicked"
+                                CommandParameter="{Binding Id}"
+                                CornerRadius="50"
+                                HeightRequest="48"
+                                WidthRequest="48">
+                                <Button.ImageSource>
+                                    <FileImageSource File="pencil.png" />
+                                </Button.ImageSource>
+                            </Button>
+                            <Button
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                Margin="0,0,20,0"
+                                BackgroundColor="{DynamicResource Danger}"
+                                Clicked="OnDeleteItem_Clicked"
+                                CommandParameter="{Binding Id}"
+                                CornerRadius="50"
+                                HeightRequest="48"
+                                WidthRequest="48">
+                                <Button.ImageSource>
+                                    <FileImageSource File="trash.png" />
+                                </Button.ImageSource>
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!--  Botão Flutuante com ícone  -->
+        <Button
+            x:Name="FabButton"
+            Margin="10"
+            BackgroundColor="{StaticResource Primary}"
+            Clicked="FabButton_Clicked"
+            CornerRadius="30"
+            HeightRequest="50"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            WidthRequest="50">
+            <Button.ImageSource>
+                <FileImageSource File="add.png" />
+            </Button.ImageSource>
+        </Button>
+    </Grid>
 </ContentPage>

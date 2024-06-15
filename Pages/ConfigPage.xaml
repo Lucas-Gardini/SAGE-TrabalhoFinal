@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:extension="clr-namespace:SAGE.Extension"
-             x:Class="SAGE.Pages.ConfigPage"
-             Title="ConfigPage"
-             NavigationPage.HasBackButton="False"
-             BackgroundColor="{DynamicResource BackgroundColor}">
-    <VerticalStackLayout
-        Padding="20">
-        <Label 
-            Text="{extension:TranslateExtansion Key=config}"
-            TextColor="{DynamicResource TextColor}"
-            FontSize="20"
-            VerticalOptions="Start" 
-            HorizontalOptions="Start" />
+<ContentPage
+    x:Class="SAGE.Pages.ConfigPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extension="clr-namespace:SAGE.Extension"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <VerticalStackLayout Margin="0,0,0,75">
+            <Label
+                Margin="0,30,0,50"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="{extension:TranslateExtansion Key=config}"
+                TextColor="{DynamicResource TextColor}"
+                VerticalOptions="Center" />
 
-        <HorizontalStackLayout HorizontalOptions="Start" Spacing="20" Margin="0, 50, 0, 0">
-            <Label Text="{extension:TranslateExtansion Key=darkTheme}"
-                   TextColor="{DynamicResource TextColor}" 
-                   VerticalOptions="Center"/>
-            <Switch
-                VerticalOptions="Center" 
-                Visual="Default" 
-                x:Name="ChangeTheme"
-                Toggled="ChangeTheme_Toggled"
-                />
-        </HorizontalStackLayout>
+            <HorizontalStackLayout
+                Margin="0,50,0,0"
+                Padding="20,0,0,0"
+                HorizontalOptions="Start"
+                Spacing="20">
+                <Label
+                    Text="{extension:TranslateExtansion Key=darkTheme}"
+                    TextColor="{DynamicResource TextColor}"
+                    VerticalOptions="Center" />
+                <Switch
+                    x:Name="ChangeTheme"
+                    Toggled="ChangeTheme_Toggled"
+                    VerticalOptions="Center"
+                    Visual="Default" />
+            </HorizontalStackLayout>
 
-        <VerticalStackLayout VerticalOptions="Center">
-            <Label Text="{extension:TranslateExtansion Key=changeLang}" Margin="0, 50, 0, 20" TextColor="{DynamicResource TextColor}"/>
-            <RadioButton Content="{extension:TranslateExtansion Key=en}" TextColor="{DynamicResource TextColor}" x:Name="rbEn" CheckedChanged="RbEn_CheckedChanged" IsChecked="False"/>
-            <RadioButton Content="{extension:TranslateExtansion Key=pt}" TextColor="{DynamicResource TextColor}" x:Name="rbPt" CheckedChanged="RbPt_CheckedChanged" IsChecked="False"/>
+            <VerticalStackLayout Padding="20,0,0,0" VerticalOptions="Center">
+                <Label
+                    Margin="0,50,0,20"
+                    Text="{extension:TranslateExtansion Key=changeLang}"
+                    TextColor="{DynamicResource TextColor}" />
+                <RadioButton
+                    x:Name="rbEn"
+                    CheckedChanged="RbEn_CheckedChanged"
+                    Content="{extension:TranslateExtansion Key=en}"
+                    IsChecked="False"
+                    TextColor="{DynamicResource TextColor}" />
+                <RadioButton
+                    x:Name="rbPt"
+                    CheckedChanged="RbPt_CheckedChanged"
+                    Content="{extension:TranslateExtansion Key=pt}"
+                    IsChecked="False"
+                    TextColor="{DynamicResource TextColor}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" />
         </VerticalStackLayout>
-
-        <VerticalStackLayout VerticalOptions="Center">
-            
-        </VerticalStackLayout>
-    </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

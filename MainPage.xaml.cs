@@ -2,6 +2,7 @@
 using SAGE.Modules.Usuarios;
 using SAGE.Pages;
 using System.Globalization;
+using System.Windows.Input;
 using Themes = SAGE.Resources.Styles.Themes;
 
 namespace SAGE
@@ -30,6 +31,15 @@ namespace SAGE
                 RememberMeCheckBox.IsChecked = true;
                 UsernameEntry.Text = File.ReadAllText(UsuarioCaminho);
             }
+
+            ThemeManager.LoadCurrentTheme();
+            var linguaSalva = Translator.Instance.GetSavedCulture();
+
+            if (linguaSalva != null)
+            {
+                Translator.Instance.Culture = new CultureInfo(linguaSalva);
+                Translator.Instance.OnPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -56,8 +66,12 @@ namespace SAGE
                 return;
             }
 
+            await ShowLoadingModalAsync();
+
             // Valida o usuário e a senha
             var usuarioAutenticado = _usuariosService.RealizarLogin(usuario, senha);
+
+            await HideLoadingModalAsync();
 
             // Verifica se a autenticação foi bem-sucedida
             if (usuarioAutenticado.Nome != "")
@@ -68,7 +82,6 @@ namespace SAGE
                 else
                     File.Delete(UsuarioCaminho);
 
-                await DisplayAlert("Sucesso", $"Bem vindo(a) de volta {usuarioAutenticado.Nome}", "OK");
                 await Navigation.PushAsync(new AppShell()); // Navega para a página contendo a navegação principal
             } else
             {
@@ -111,6 +124,25 @@ namespace SAGE
                 Translator.Instance.Culture = new CultureInfo("pt-BR");
                 Translator.Instance.OnPropertyChanged();
             }
+
+            Translator.Instance.SaveCurrentCulture(Translator.Instance.Culture.Name);
+        }
+
+        private Task ShowLoadingModalAsync()
+        {
+            LoadingModal.IsVisible = true;
+            return Task.CompletedTask;
+        }
+
+        private Task HideLoadingModalAsync()
+        {
+            LoadingModal.IsVisible = false;
+            return Task.CompletedTask;
+        }
+
+        private async void OnCreateNewUser(object sender, EventArgs e)
+        {
+           await Navigation.PushAsync(new CriarEditarUsuariosPage());
         }
     }
 }
