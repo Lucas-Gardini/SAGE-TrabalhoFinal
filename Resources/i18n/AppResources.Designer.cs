@@ -205,6 +205,51 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Erro.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Falha ao salvar usuário.
+        /// </summary>
+        internal static string errorToSaveUser {
+            get {
+                return ResourceManager.GetString("errorToSaveUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Falha ao salvar disciplina.
+        /// </summary>
+        internal static string failedToSaveDisc {
+            get {
+                return ResourceManager.GetString("failedToSaveDisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Por favor, preencha todos os campos obrigatórios..
+        /// </summary>
+        internal static string fillFieldsAlert {
+            get {
+                return ResourceManager.GetString("fillFieldsAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Identificador do usuário.
+        /// </summary>
+        internal static string identifier {
+            get {
+                return ResourceManager.GetString("identifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Sair.
         /// </summary>
         internal static string logout {
@@ -237,6 +282,15 @@ namespace SAGE.Resources.i18n {
         internal static string nameDisc {
             get {
                 return ResourceManager.GetString("nameDisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não foi possível excluir a disciplina.
+        /// </summary>
+        internal static string notDelDisc {
+            get {
+                return ResourceManager.GetString("notDelDisc", resourceCulture);
             }
         }
         
@@ -286,6 +340,33 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Digite a sigla ou o nome da disciplina que deseja buscar.
+        /// </summary>
+        internal static string searchDsc {
+            get {
+                return ResourceManager.GetString("searchDsc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Buscar disciplina.
+        /// </summary>
+        internal static string searchTitle {
+            get {
+                return ResourceManager.GetString("searchTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Sucesso.
+        /// </summary>
+        internal static string success {
+            get {
+                return ResourceManager.GetString("success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Disciplinas.
         /// </summary>
         internal static string tabDisciplines {
@@ -327,6 +408,15 @@ namespace SAGE.Resources.i18n {
         internal static string teacherDisc {
             get {
                 return ResourceManager.GetString("teacherDisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Use ele como login!.
+        /// </summary>
+        internal static string useIt {
+            get {
+                return ResourceManager.GetString("useIt", resourceCulture);
             }
         }
         

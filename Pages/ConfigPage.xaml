@@ -42,11 +42,13 @@
                     x:Name="rbEn"
                     CheckedChanged="RbEn_CheckedChanged"
                     Content="{extension:TranslateExtansion Key=en}"
+                    BackgroundColor="{DynamicResource BackgroundColor}"
                     IsChecked="False"
                     TextColor="{DynamicResource TextColor}" />
                 <RadioButton
                     x:Name="rbPt"
                     CheckedChanged="RbPt_CheckedChanged"
+                    BackgroundColor="{DynamicResource BackgroundColor}"
                     Content="{extension:TranslateExtansion Key=pt}"
                     IsChecked="False"
                     TextColor="{DynamicResource TextColor}" />

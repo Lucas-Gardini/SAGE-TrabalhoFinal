@@ -55,6 +55,10 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Images\refresh.png" />
+	</ItemGroup>
+
 	<!--<ItemGroup>
 	  <MauiImage Remove="Resources\Images\home.png" />
 	</ItemGroup>

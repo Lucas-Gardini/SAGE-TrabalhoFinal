@@ -1,6 +1,7 @@
 using SAGE.Modules.Generic;
 using SAGE.Modules.Disciplinas;
 using SAGE.Modules.Usuarios;
+using SAGE.Extension;
 
 namespace SAGE.Pages;
 
@@ -53,7 +54,8 @@ public partial class DisciplinasPage : ContentPage
 		}
 		catch
 		{
-			DisplayAlert("Erro", "Não foi possível excluir a disciplina", "OK"); // Exibe mensagem de erro
+			DisplayAlert(Translator.Instance["error"], Translator.Instance["notDelDisc"], "OK"); // Exibe mensagem de erro
+		}
 		}
 
 		Startup(); // Atualiza a lista de disciplinas
@@ -94,16 +96,34 @@ public partial class DisciplinasPage : ContentPage
         Navigation.PushModalAsync(modal); // Abre a página modal
     }
 
-    private void DisciplinasCollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
+    private async void SearchBtn_Clicked(object sender, EventArgs e)
     {
-        // Verifica se o usuário chegou ao final da visualização
-        if (e.VerticalDelta > 0 && e.VerticalOffset + DisciplinasCollectionView.Height >= DisciplinasCollectionView.ItemsSource.Cast<object>().Count())
-        {
-            // Obtém o último item da fonte de itens
-            var lastItem = DisciplinasCollectionView.ItemsSource.Cast<object>().LastOrDefault();
+        var searchTerm = await DisplayPromptAsync(Translator.Instance["searchTitle"], Translator.Instance["searchDsc"], "OK", "Cancel", keyboard: Keyboard.Text);
 
-            // Rola até o último item
-            DisciplinasCollectionView.ScrollTo(lastItem, ScrollToPosition.End, animate: true);
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            SearchDisciplinas(searchTerm);
         }
+        else
+        {
+            Startup(); // Se o termo de busca estiver vazio, mostra todas as disciplinas novamente
+        }
+    }
+
+    /// <summary>
+    /// Método para buscar disciplinas com base em um termo de busca.
+    /// </summary>
+    /// <param name="searchTerm">Termo de busca fornecido pelo usuário.</param>
+    private void SearchDisciplinas(string searchTerm)
+    {
+        var filteredDisciplinas = Disciplinas.Where(d => d.Sigla.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) || d.Nome.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
+        DisciplinasCollectionView.ItemsSource = filteredDisciplinas;
+		RefreshBtn.IsVisible = true;
+    }
+
+    private void RefreshBtn_Clicked(object sender, EventArgs e)
+    {
+		Startup();
+		RefreshBtn.IsVisible = false;
     }
 }

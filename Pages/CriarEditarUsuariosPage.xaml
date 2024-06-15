@@ -58,6 +58,7 @@
                     HeightRequest="40"
                     MaxLength="22"
                     Placeholder="ex: Lucas Dias de Oliveira Nery"
+                    TextColor="White"
                     PlaceholderColor="{DynamicResource PlaceholderColor}"
                     VerticalOptions="Center" />
             </VerticalStackLayout>
@@ -75,6 +76,7 @@
                     IsPassword="True"
                     Placeholder="******"
                     PlaceholderColor="{DynamicResource PlaceholderColor}"
+                    TextColor="White"
                     VerticalOptions="Center" />
             </VerticalStackLayout>
 

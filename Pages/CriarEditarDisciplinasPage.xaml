@@ -15,15 +15,12 @@
             BackgroundColor="{DynamicResource Danger}"
             Clicked="CloseButton_Clicked"
             CornerRadius="30"
-            HeightRequest="50"
+            HeightRequest="40"
             HorizontalOptions="End"
             VerticalOptions="Start"
-            WidthRequest="50"
-            ZIndex="9">
-            <Button.ImageSource>
-                <FileImageSource File="x.png" />
-            </Button.ImageSource>
-        </Button>
+            WidthRequest="40"
+            ZIndex="9"
+            Text="X"/>
 
         <!--  Layout principal da página  -->
         <VerticalStackLayout
@@ -48,6 +45,7 @@
                     HeightRequest="40"
                     MaxLength="18"
                     Placeholder="ex: Matemática"
+                    TextColor="{DynamicResource TextColor}"
                     PlaceholderColor="{DynamicResource PlaceholderColor}"
                     VerticalOptions="Center" />
             </VerticalStackLayout>
@@ -64,6 +62,7 @@
                     HeightRequest="40"
                     MaxLength="4"
                     Placeholder="ex: MAT"
+                    TextColor="{DynamicResource TextColor}"
                     PlaceholderColor="{DynamicResource PlaceholderColor}"
                     VerticalOptions="Center" />
             </VerticalStackLayout>
@@ -79,6 +78,7 @@
                     BackgroundColor="{DynamicResource EntryBackgroundColor}"
                     HeightRequest="40"
                     Placeholder="ex: Jhonatan Galante"
+                    TextColor="{DynamicResource TextColor}"
                     PlaceholderColor="{DynamicResource PlaceholderColor}"
                     VerticalOptions="Center" />
             </VerticalStackLayout>

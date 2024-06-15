@@ -1,6 +1,7 @@
 using SAGE.Modules.Disciplinas;
 using SAGE.Modules.Usuarios;
 using SAGE.Modules.Generic;
+using SAGE.Extension;
 
 namespace SAGE.Pages;
 
@@ -39,7 +40,7 @@ public partial class CriarEditarDisciplinasPage : ContentPage
 
         if (string.IsNullOrWhiteSpace(Disciplina.Nome) || string.IsNullOrWhiteSpace(Disciplina.Sigla) || string.IsNullOrWhiteSpace(Disciplina.Professor))
         {
-			await DisplayAlert("Erro", "Por favor, preencha todos os campos obrigatórios.", "OK");
+			await DisplayAlert(Translator.Instance["error"], Translator.Instance["fillFieldsAlert"], "OK");
 			return;
 		}
 
@@ -58,7 +59,7 @@ public partial class CriarEditarDisciplinasPage : ContentPage
 		}
 		catch (Exception ex)
 		{
-			await DisplayAlert("Erro", $"Falha ao salvar disciplina: {ex.Message}", "OK");
+			await DisplayAlert(Translator.Instance["error"], Translator.Instance["failedToSaveDisc"] +  $": {ex.Message}", "OK");
 		}
 	}
 

@@ -16,7 +16,6 @@
             <CollectionView
                 x:Name="DisciplinasCollectionView"
                 ItemsSource="{Binding Disciplinas}"
-                Scrolled="DisciplinasCollectionView_Scrolled"
                 VerticalScrollBarVisibility="Always">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -38,7 +37,7 @@
                                 FontSize="15"
                                 HorizontalTextAlignment="Center"
                                 Text="{extension:TranslateExtansion Key=nameDisc}"
-                                TextColor="{StaticResource White}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalTextAlignment="Center" />
 
                             <Label
@@ -47,7 +46,7 @@
                                 Grid.ColumnSpan="3"
                                 MaxLines="2"
                                 Text="{Binding Nome}"
-                                TextColor="{StaticResource White}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalOptions="Center"
                                 VerticalTextAlignment="Center" />
 
@@ -58,14 +57,14 @@
                                 FontSize="15"
                                 HorizontalTextAlignment="Center"
                                 Text="{extension:TranslateExtansion Key=acronymDisc}"
-                                TextColor="{DynamicResource White}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalTextAlignment="Center" />
 
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 Text="{Binding Sigla}"
-                                TextColor="{StaticResource White}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalOptions="Center"
                                 VerticalTextAlignment="Center" />
 
@@ -76,7 +75,7 @@
                                 FontSize="15"
                                 HorizontalTextAlignment="Center"
                                 Text="{extension:TranslateExtansion Key=teacherDisc}"
-                                TextColor="{DynamicResource White}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalTextAlignment="Center" />
 
                             <Label
@@ -84,7 +83,7 @@
                                 Grid.Column="1"
                                 Grid.ColumnSpan="3"
                                 Text="{Binding Professor}"
-                                TextColor="{StaticResource White}"
+                                TextColor="{DynamicResource TextColor}"
                                 VerticalOptions="Center"
                                 VerticalTextAlignment="Center" />
 
@@ -95,7 +94,7 @@
                                 BackgroundColor="{DynamicResource Tertiary}"
                                 Clicked="OnNotasItem_Clicked"
                                 CommandParameter="{Binding Id}"
-                                CornerRadius="50"
+                                CornerRadius="12"
                                 HeightRequest="48"
                                 WidthRequest="48">
                                 <Button.ImageSource>
@@ -137,20 +136,51 @@
             </CollectionView>
         </ScrollView>
 
-        <!--  Botão Flutuante com ícone  -->
-        <Button
-            x:Name="FabButton"
-            Margin="10"
-            BackgroundColor="{StaticResource Primary}"
-            Clicked="FabButton_Clicked"
-            CornerRadius="30"
-            HeightRequest="50"
-            HorizontalOptions="End"
-            VerticalOptions="End"
-            WidthRequest="50">
-            <Button.ImageSource>
-                <FileImageSource File="add.png" />
-            </Button.ImageSource>
-        </Button>
+        <!--  Botões Flutuantes com ícone  -->
+        <VerticalStackLayout VerticalOptions="End">
+            <Button
+             x:Name="RefreshBtn"
+             IsVisible="False"
+             Margin="10"
+             BackgroundColor="{StaticResource PlaceholderColor}"
+             Clicked="RefreshBtn_Clicked"
+             CornerRadius="30"
+             HeightRequest="50"
+             HorizontalOptions="End"
+             VerticalOptions="End"
+             WidthRequest="50">
+                <Button.ImageSource>
+                    <FileImageSource File="refresh.png" />
+                </Button.ImageSource>
+            </Button>
+            <Button
+             x:Name="SearchBtn"
+             Margin="10"
+             BackgroundColor="{StaticResource Secondary}"
+             Clicked="SearchBtn_Clicked"
+             CornerRadius="30"
+             HeightRequest="50"
+             HorizontalOptions="End"
+             VerticalOptions="End"
+             WidthRequest="50"> 
+                <Button.ImageSource>
+                    <FileImageSource File="search.png" />
+                </Button.ImageSource>
+            </Button>
+            <Button
+             x:Name="FabButton"
+             Margin="10"
+             BackgroundColor="{StaticResource Primary}"
+             Clicked="FabButton_Clicked"
+             CornerRadius="30"
+             HeightRequest="50"
+             HorizontalOptions="End"
+             VerticalOptions="End"
+             WidthRequest="50">
+                <Button.ImageSource>
+                    <FileImageSource File="add.png" />
+                </Button.ImageSource>
+            </Button>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>

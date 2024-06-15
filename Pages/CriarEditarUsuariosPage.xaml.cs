@@ -1,3 +1,4 @@
+using SAGE.Extension;
 using SAGE.Modules.Usuarios;
 
 
@@ -59,7 +60,7 @@ namespace SAGE.Pages
 
             if (string.IsNullOrWhiteSpace(Usuario.Nome))
             {
-                await DisplayAlert("Erro", "Por favor, preencha todos os campos obrigatórios.", "OK");
+                await DisplayAlert(Translator.Instance["error"], Translator.Instance["fillFieldsAlert"], "OK");
                 return;
             }
 
@@ -69,12 +70,12 @@ namespace SAGE.Pages
                 {
                     if (string.IsNullOrWhiteSpace(Usuario.Senha))
                     {
-                        await DisplayAlert("Erro", "Por favor, preencha todos os campos obrigatórios.", "OK");
+                        await DisplayAlert(Translator.Instance["error"], Translator.Instance["fillFieldsAlert"], "OK");
                         return;
                     }
                     var usuarioCriado = _usuariosService.InsertOne(Usuario); // Adiciona um novo usuário
 
-                    await DisplayAlert("Sucesso", $"Identificador do usuário: {usuarioCriado.Identificador}. Use ele como login!", "OK");
+                    await DisplayAlert(Translator.Instance["success"], Translator.Instance["identifier"] +  $": {usuarioCriado.Identificador}. " + Translator.Instance["useIt"], "OK");
                 } else
                 {
                     if (!string.IsNullOrWhiteSpace(Usuario.Senha))
@@ -95,7 +96,7 @@ namespace SAGE.Pages
 
             } catch (Exception ex)
             {
-                await DisplayAlert("Erro", $"Falha ao salvar usuário: {ex.Message}", "OK");
+                await DisplayAlert(Translator.Instance["error"], Translator.Instance["errorToSaveUser"] + $": {ex.Message}", "OK");
             }
         }
     }

@@ -165,6 +165,21 @@
   <data name="enter" xml:space="preserve">
     <value>Entrar</value>
   </data>
+  <data name="error" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="errorToSaveUser" xml:space="preserve">
+    <value>Falha ao salvar usuário</value>
+  </data>
+  <data name="failedToSaveDisc" xml:space="preserve">
+    <value>Falha ao salvar disciplina</value>
+  </data>
+  <data name="fillFieldsAlert" xml:space="preserve">
+    <value>Por favor, preencha todos os campos obrigatórios.</value>
+  </data>
+  <data name="identifier" xml:space="preserve">
+    <value>Identificador do usuário</value>
+  </data>
   <data name="logout" xml:space="preserve">
     <value>Sair</value>
   </data>
@@ -176,6 +191,9 @@
   </data>
   <data name="nameDisc" xml:space="preserve">
     <value>Nome:</value>
+  </data>
+  <data name="notDelDisc" xml:space="preserve">
+    <value>Não foi possível excluir a disciplina</value>
   </data>
   <data name="notesList" xml:space="preserve">
     <value>Notas</value>
@@ -192,6 +210,15 @@
   <data name="save" xml:space="preserve">
     <value>Salvar</value>
   </data>
+  <data name="searchDsc" xml:space="preserve">
+    <value>Digite a sigla ou o nome da disciplina que deseja buscar</value>
+  </data>
+  <data name="searchTitle" xml:space="preserve">
+    <value>Buscar disciplina</value>
+  </data>
+  <data name="success" xml:space="preserve">
+    <value>Sucesso</value>
+  </data>
   <data name="tabDisciplines" xml:space="preserve">
     <value>Disciplinas</value>
   </data>
@@ -206,6 +233,9 @@
   </data>
   <data name="teacherDisc" xml:space="preserve">
     <value>Professor:</value>
+  </data>
+  <data name="useIt" xml:space="preserve">
+    <value>Use ele como login!</value>
   </data>
   <data name="user" xml:space="preserve">
     <value>Usuário</value>
