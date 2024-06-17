@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="SAGE.Pages.CriarEditarUsuariosPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:extension="clr-namespace:SAGE.Extension"
-    BackgroundColor="{DynamicResource BackgroundColor}"
-    NavigationPage.HasBackButton="False"
-    NavigationPage.HasNavigationBar="False">
-    <Grid>
-        <!--  Botão Flutuante com ícone  -->
-        <Button
-            x:Name="CloseButton"
-            Margin="10"
-            BackgroundColor="{DynamicResource Danger}"
-            Clicked="CloseButton_Clicked"
-            CornerRadius="30"
-            HeightRequest="50"
-            HorizontalOptions="End"
-            TextColor="White"
-            VerticalOptions="Start"
-            WidthRequest="50"
-            ZIndex="9">
-            <Button.ImageSource>
-                <FileImageSource File="x.png" />
-            </Button.ImageSource>
-        </Button>
+  x:Class="SAGE.Pages.CriarEditarUsuariosPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:extension="clr-namespace:SAGE.Extension"
+  BackgroundColor="{DynamicResource BackgroundColor}"
+  NavigationPage.HasBackButton="False"
+  NavigationPage.HasNavigationBar="False">
+  <Grid>
+    <!--  Botão Flutuante com ícone  -->
+    <Button
+      x:Name="CloseButton"
+      Margin="10"
+      BackgroundColor="{DynamicResource Danger}"
+      Clicked="CloseButton_Clicked"
+      CornerRadius="30"
+      HeightRequest="50"
+      HorizontalOptions="End"
+      TextColor="White"
+      VerticalOptions="Start"
+      WidthRequest="50"
+      ZIndex="9">
+      <Button.ImageSource>
+        <FileImageSource File="x.png" />
+      </Button.ImageSource>
+    </Button>
 
-        <!--  Layout principal da página  -->
-        <VerticalStackLayout
-            Margin="0,50,0,0"
-            Padding="20"
-            Spacing="20">
-            <Label
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="{extension:TranslateExtansion Key=createAndEditUser}"
-                TextColor="{DynamicResource TextColor}" />
+    <!--  Layout principal da página  -->
+    <VerticalStackLayout
+      Margin="0,50,0,0"
+      Padding="20"
+      Spacing="20">
+      <Label
+        FontSize="20"
+        HorizontalOptions="Center"
+        Text="{extension:TranslateExtansion Key=createAndEditUser}"
+        TextColor="{DynamicResource TextColor}" />
 
-            <!--  Identificador  -->
-            <!--<VerticalStackLayout>
+      <!--  Identificador  -->
+      <!--<VerticalStackLayout>
                 <Label Text="Identificador" VerticalOptions="Center" />
                 <Entry
                     x:Name="IdentificadorEntry"
@@ -46,48 +46,48 @@
                     VerticalOptions="Center" />
             </VerticalStackLayout>-->
 
-            <!--  Nome  -->
-            <VerticalStackLayout Spacing="10">
-                <Label
-                    Text="{extension:TranslateExtansion Key=name}"
-                    TextColor="{DynamicResource TextColor}"
-                    VerticalOptions="Center" />
-                <Entry
-                    x:Name="NomeEntry"
-                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    HeightRequest="40"
-                    MaxLength="22"
-                    Placeholder="ex: Lucas Dias de Oliveira Nery"
-                    TextColor="White"
-                    PlaceholderColor="{DynamicResource PlaceholderColor}"
-                    VerticalOptions="Center" />
-            </VerticalStackLayout>
+      <!--  Nome  -->
+      <VerticalStackLayout Spacing="10">
+        <Label
+          Text="{extension:TranslateExtansion Key=name}"
+          TextColor="{DynamicResource TextColor}"
+          VerticalOptions="Center" />
+        <Entry
+          x:Name="NomeEntry"
+          BackgroundColor="{DynamicResource EntryBackgroundColor}"
+          HeightRequest="40"
+          MaxLength="22"
+          Placeholder="ex: Lucas Dias de Oliveira Nery"
+          PlaceholderColor="{DynamicResource PlaceholderColor}"
+          TextColor="White"
+          VerticalOptions="Center" />
+      </VerticalStackLayout>
 
-            <!--  Senha  -->
-            <VerticalStackLayout Spacing="10">
-                <Label
-                    Text="{extension:TranslateExtansion Key=password}"
-                    TextColor="{DynamicResource TextColor}"
-                    VerticalOptions="Center" />
-                <Entry
-                    x:Name="SenhaEntry"
-                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                    HeightRequest="40"
-                    IsPassword="True"
-                    Placeholder="******"
-                    PlaceholderColor="{DynamicResource PlaceholderColor}"
-                    TextColor="White"
-                    VerticalOptions="Center" />
-            </VerticalStackLayout>
+      <!--  Senha  -->
+      <VerticalStackLayout Spacing="10">
+        <Label
+          Text="{extension:TranslateExtansion Key=password}"
+          TextColor="{DynamicResource TextColor}"
+          VerticalOptions="Center" />
+        <Entry
+          x:Name="SenhaEntry"
+          BackgroundColor="{DynamicResource EntryBackgroundColor}"
+          HeightRequest="40"
+          IsPassword="True"
+          Placeholder="******"
+          PlaceholderColor="{DynamicResource PlaceholderColor}"
+          TextColor="White"
+          VerticalOptions="Center" />
+      </VerticalStackLayout>
 
-            <!--  Botões de Ação  -->
-            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-                <Button
-                    BackgroundColor="{DynamicResource Primary}"
-                    Clicked="OnSaveClicked"
-                    Text="{extension:TranslateExtansion Key=save}"
-                    TextColor="White" />
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-    </Grid>
+      <!--  Botões de Ação  -->
+      <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+        <Button
+          BackgroundColor="{DynamicResource Primary}"
+          Clicked="OnSaveClicked"
+          Text="{extension:TranslateExtansion Key=save}"
+          TextColor="White" />
+      </HorizontalStackLayout>
+    </VerticalStackLayout>
+  </Grid>
 </ContentPage>

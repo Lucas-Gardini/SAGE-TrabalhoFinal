@@ -39,25 +39,29 @@ public partial class DisciplinasPage : ContentPage
 	/// <summary>
 	/// Método acionado quando o botão de exclusão é clicado.
 	/// </summary>
-	private void OnDeleteItem_Clicked(object sender, EventArgs e)
+	private async void OnDeleteItem_Clicked(object sender, EventArgs e)
 	{
-		var menuItem = sender as Button;
-
-		if (menuItem == null)
-			return;
-
-		var disciplinaId = menuItem.CommandParameter;
-
-		try
+		var excluir = await DisplayAlert(Translator.Instance["deleteDiscipline"], Translator.Instance["deleteDisciplineAsk"], Translator.Instance["yes"], Translator.Instance[key: "no"]);
+		if (excluir)
 		{
-			_disciplinasService.DeleteOne(_disciplinasService.GetOne(d => d.Id == Convert.ToInt32(disciplinaId))!); // Exclui a disciplina
-		}
-		catch
-		{
-			DisplayAlert(Translator.Instance["error"], Translator.Instance["notDelDisc"], "OK"); // Exibe mensagem de erro
-		}
+			var menuItem = sender as Button;
 
-		Startup(); // Atualiza a lista de disciplinas
+			if (menuItem == null)
+				return;
+
+			var disciplinaId = menuItem.CommandParameter;
+
+			try
+			{
+				_disciplinasService.DeleteOne(_disciplinasService.GetOne(d => d.Id == Convert.ToInt32(disciplinaId))!); // Exclui a disciplina
+			}
+			catch
+			{
+				DisplayAlert(Translator.Instance["error"], Translator.Instance["notDelDisc"], "OK"); // Exibe mensagem de erro
+			}
+
+			Startup(); // Atualiza a lista de disciplinas
+		}
 	}
 
 	/// <summary>

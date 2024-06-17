@@ -232,6 +232,24 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Excluir Disciplina.
+        /// </summary>
+        internal static string deleteDiscipline {
+            get {
+                return ResourceManager.GetString("deleteDiscipline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Deseja excluir a disciplina?.
+        /// </summary>
+        internal static string deleteDisciplineAsk {
+            get {
+                return ResourceManager.GetString("deleteDisciplineAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Lista de Disciplinas.
         /// </summary>
         internal static string disciplinesList {
