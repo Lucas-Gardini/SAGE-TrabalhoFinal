@@ -47,8 +47,8 @@ namespace SAGE.Pages
         /// </summary>
         private async void CloseButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync(); // Fecha a página modal
-        }
+			await Navigation.PopAsync(); // Fecha a página modal
+		}
 
         /// <summary>
         /// Método acionado quando o botão de salvar é clicado.
