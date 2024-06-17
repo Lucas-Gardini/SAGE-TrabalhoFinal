@@ -97,6 +97,24 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Aprovado.
+        /// </summary>
+        internal static string approved {
+            get {
+                return ResourceManager.GetString("approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Média.
+        /// </summary>
+        internal static string averageGrade {
+            get {
+                return ResourceManager.GetString("averageGrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Cancelar.
         /// </summary>
         internal static string cancel {
@@ -250,6 +268,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Reprovado.
+        /// </summary>
+        internal static string disapproved {
+            get {
+                return ResourceManager.GetString("disapproved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Lista de Disciplinas.
         /// </summary>
         internal static string disciplinesList {
@@ -336,6 +363,15 @@ namespace SAGE.Resources.i18n {
         internal static string grade {
             get {
                 return ResourceManager.GetString("grade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Trabalho.
+        /// </summary>
+        internal static string homeWork {
+            get {
+                return ResourceManager.GetString("homeWork", resourceCulture);
             }
         }
         
@@ -543,6 +579,15 @@ namespace SAGE.Resources.i18n {
         internal static string searchTitle {
             get {
                 return ResourceManager.GetString("searchTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Compartilhar esta disciplina com outras contas?.
+        /// </summary>
+        internal static string shareDiscipline {
+            get {
+                return ResourceManager.GetString("shareDiscipline", resourceCulture);
             }
         }
         

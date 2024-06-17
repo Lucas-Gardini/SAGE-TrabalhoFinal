@@ -129,6 +129,12 @@
   <data name="admin" xml:space="preserve">
     <value>Administrador</value>
   </data>
+  <data name="approved" xml:space="preserve">
+    <value>Aprovado</value>
+  </data>
+  <data name="averageGrade" xml:space="preserve">
+    <value>Média</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -180,6 +186,9 @@
   <data name="deleteDisciplineAsk" xml:space="preserve">
     <value>Deseja excluir a disciplina?</value>
   </data>
+  <data name="disapproved" xml:space="preserve">
+    <value>Reprovado</value>
+  </data>
   <data name="disciplinesList" xml:space="preserve">
     <value>Lista de Disciplinas</value>
   </data>
@@ -209,6 +218,9 @@
   </data>
   <data name="grade" xml:space="preserve">
     <value>Nota</value>
+  </data>
+  <data name="homeWork" xml:space="preserve">
+    <value>Trabalho</value>
   </data>
   <data name="identifier" xml:space="preserve">
     <value>Identificador do usuário</value>
@@ -278,6 +290,9 @@
   </data>
   <data name="searchTitle" xml:space="preserve">
     <value>Buscar disciplina</value>
+  </data>
+  <data name="shareDiscipline" xml:space="preserve">
+    <value>Compartilhar esta disciplina com outras contas?</value>
   </data>
   <data name="success" xml:space="preserve">
     <value>Sucesso</value>

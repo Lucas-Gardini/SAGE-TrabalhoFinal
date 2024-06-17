@@ -16,5 +16,11 @@ namespace SAGE.Modules.Disciplinas
 
         [MaxLength(100), NotNull]
         public string Professor { get; set; } = "";
+
+        [NotNull]
+        public bool Share { get; set; }
+
+        [NotNull]
+        public int AlunoId { get; set; }
     }
 }

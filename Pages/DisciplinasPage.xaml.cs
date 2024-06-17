@@ -23,8 +23,10 @@ public partial class DisciplinasPage : ContentPage
 	/// </summary>
 	private void Startup()
 	{
-		Disciplinas = _disciplinasService.GetMany();
-		DisciplinasCollectionView.ItemsSource = Disciplinas;
+		var user = UsuariosService.GetUsuarioLogado();
+
+        Disciplinas = _disciplinasService.GetMany(d => d.AlunoId == user.Id || d.Share); // Substitua 'alunoId' pelo ID do aluno atualmente logado
+        DisciplinasCollectionView.ItemsSource = Disciplinas;
 	}
 
 	private void FabButton_Clicked(object sender, EventArgs e)

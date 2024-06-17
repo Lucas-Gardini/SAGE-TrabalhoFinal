@@ -1,115 +1,126 @@
-using SAGE.Extension;
-using SAGE.Modules.Disciplinas;
-using SAGE.Modules.Generic;
-using SAGE.Modules.Usuarios;
+using SAGE.Extension; // Importa o namespace para TranslateExtension
+using SAGE.Modules.Disciplinas; // Importa o namespace para Disciplina
+using SAGE.Modules.Generic; // Importa o namespace para GenericService
+using SAGE.Modules.Usuarios; // Importa o namespace para UsuariosService
 
-namespace SAGE.Pages;
-
-public partial class NotasPage : ContentPage
+namespace SAGE.Pages
 {
-    private readonly GenericService<Disciplina> _disciplinaService = new();
-    private readonly GenericService<Notas> _notasService = new();
-
-    private Disciplina Disciplina { get; set; }
-    private double Media { get; set; }
-
-    public List<Notas> Notas { get; set; } = new();
-    public event Action AoFechar;
-
-    public NotasPage(int id)
+    public partial class NotasPage : ContentPage
     {
-        InitializeComponent();
-        Disciplina = _disciplinaService.GetOne(d => d.Id == id)!; // Obtém a disciplina pelo ID
-        AoFechar = () => { };
+        private readonly GenericService<Disciplina> _disciplinaService = new(); // Instância do serviço genérico para Disciplina
+        private readonly GenericService<Notas> _notasService = new(); // Instância do serviço genérico para Notas
 
-        Startup();
-    }
+        private Disciplina Disciplina { get; set; } // Propriedade para armazenar a disciplina atual
+        private double Media { get; set; } // Propriedade para armazenar a média das notas
 
-    private void Startup()
-    {
-        var usuario = UsuariosService.GetUsuarioLogado();
+        public List<Notas> Notas { get; set; } = new(); // Lista para armazenar as notas
+        public event Action AoFechar; // Evento para fechar a página
 
-        Notas = _notasService.GetMany(n => n.DisciplinaId == Disciplina.Id && n.AlunoId == usuario.Id); // Obtém as notas da disciplina
-
-        // Calcula a média a partir das notas
-        foreach (var nota in Notas)
+        public NotasPage(int id)
         {
-            Media = Notas.Average(n => n.Nota); 
+            InitializeComponent(); // Inicializa os componentes da página
+            Disciplina = _disciplinaService.GetOne(d => d.Id == id)!; // Obtém a disciplina pelo ID
+            AoFechar = () => { }; // Inicializa o evento de fechar
+            Startup(); // Inicializa a página
         }
 
-        if (Notas.Count == 0) Media = 0; // Se não houver notas, a média é 0
-
-        if (Media >= 6)
-            situacaoAlunoLabel.Text = "Aprovado"; // Se a média for maior ou igual a 6, o aluno está aprovado
-        else
-            situacaoAlunoLabel.Text = "Reprovado"; // Se a média for menor que 6, o aluno está reprovado
-
-        MediaLabel.Text = $"Média: {Media.ToString("0.00")}"; // Exibe a média
-
-        NotasCollectionView.ItemsSource = Notas; // Define a coleção de notas
-    }
-
-    private async void AddNotaButton_Clicked(object sender, EventArgs e)
-    {
-        var usuario = UsuariosService.GetUsuarioLogado();
-
-        // Abre um alerta de input e solicita a nota do aluno
-        var nota = await DisplayPromptAsync(Translator.Instance["Grade"], Translator.Instance["entryGrade"], "OK", Translator.Instance["cancel"], keyboard: Keyboard.Numeric);
-        var isProva = await DisplayAlert(Translator.Instance["test"], Translator.Instance["isTest"], Translator.Instance["yes"], Translator.Instance["no"]);
-
-        if (nota == null)
-            return;
-
-        try
+        // Método para iniciar a página
+        private void Startup()
         {
-            _notasService.InsertOne(new Notas
+            var usuario = UsuariosService.GetUsuarioLogado(); // Obtém o usuário logado
+
+            // Obtém as notas da disciplina para o aluno específico
+            Notas = _notasService.GetMany(n => n.DisciplinaId == Disciplina.Id && n.AlunoId == usuario.Id);
+
+            // Calcula a média a partir das notas
+            foreach (var nota in Notas)
             {
-                DisciplinaId = Disciplina.Id,
-                Nota = Convert.ToDouble(nota),
-                Prova = isProva,
-                AlunoId = usuario.Id,
-            });
+                Media = Notas.Average(n => n.Nota);
+            }
 
-            Startup();
-        } catch (Exception)
-        {
-            await DisplayAlert(Translator.Instance["error"], Translator.Instance["noAddGrade"], "OK");
+            // Se não houver notas, a média é 0
+            if (Notas.Count == 0) Media = 0;
+
+            // Define a situação do aluno com base na média
+            if (Media >= 6)
+                situacaoAlunoLabel.Text = Translator.Instance["approved"]; // Aprovado
+            else
+                situacaoAlunoLabel.Text = Translator.Instance["disapproved"]; // Reprovado
+
+            // Exibe a média formatada
+            MediaLabel.Text = Translator.Instance["averageGrade"] + $": {Media.ToString("0.00")}";
+
+            NotasCollectionView.ItemsSource = Notas; // Define a coleção de notas na CollectionView
         }
-    }
-    private async void CloseButton_Clicked(object sender, EventArgs e)
-    {
-        await Navigation.PopModalAsync(); // Fecha a página modal
-    }
 
-    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
-    {
-        var tappedEventArgs = (TappedEventArgs)e;
-        if (tappedEventArgs.Parameter is int notaId)
+        // Método chamado quando o botão Adicionar Nota é clicado
+        private async void AddNotaButton_Clicked(object sender, EventArgs e)
         {
-            // Pergunta ao usuário se ele deseja excluir a nota
-            var confirm = await DisplayAlert(Translator.Instance["delete"], Translator.Instance["wantDeleteGrade"], Translator.Instance["yes"], Translator.Instance["no"]);
+            var usuario = UsuariosService.GetUsuarioLogado(); // Obtém o usuário logado
 
-            if (!confirm)
+            // Abre um alerta para inserir a nota do aluno
+            var nota = await DisplayPromptAsync(Translator.Instance["Grade"], Translator.Instance["entryGrade"], "OK", Translator.Instance["cancel"], keyboard: Keyboard.Numeric);
+            var isProva = await DisplayAlert(Translator.Instance["test"], Translator.Instance["isTest"], Translator.Instance["yes"], Translator.Instance["no"]);
+
+            if (nota == null)
                 return;
 
             try
             {
-                _notasService.DeleteMany(n => n.Id == notaId); // Exclui a nota
-                Startup();
-            } catch
+                // Insere uma nova nota
+                _notasService.InsertOne(new Notas
+                {
+                    DisciplinaId = Disciplina.Id,
+                    Nota = Convert.ToDouble(nota),
+                    Prova = isProva,
+                    AlunoId = usuario.Id,
+                });
+
+                Startup(); // Atualiza a página
+            }
+            catch (Exception)
             {
-                await DisplayAlert(Translator.Instance["error"], Translator.Instance["noDeleteGrade"], "OK");
+                await DisplayAlert(Translator.Instance["error"], Translator.Instance["noAddGrade"], "OK");
             }
         }
-    }
 
-    private void Label_Loaded(object sender, EventArgs e)
-    {
-        // Se for true, retorna "Prova", senão, retorna "Trabalho"
-        var label = (Label)sender;
-        var nota = (Notas)label.BindingContext;
+        // Método chamado quando um item da lista de notas é tocado
+        private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+        {
+            var tappedEventArgs = (TappedEventArgs)e;
+            if (tappedEventArgs.Parameter is int notaId)
+            {
+                // Pergunta ao usuário se deseja excluir a nota
+                var confirm = await DisplayAlert(Translator.Instance["delete"], Translator.Instance["wantDeleteGrade"], Translator.Instance["yes"], Translator.Instance["no"]);
 
-        label.Text = nota.Prova ? "Prova" : "Trabalho";
+                if (!confirm)
+                    return;
 
+                try
+                {
+                    _notasService.DeleteMany(n => n.Id == notaId); // Exclui a nota
+                    Startup(); // Atualiza a página
+                }
+                catch
+                {
+                    await DisplayAlert(Translator.Instance["error"], Translator.Instance["noDeleteGrade"], "OK");
+                }
+            }
+        }
+
+        // Método chamado quando um item da lista de notas é carregado
+        private void Label_Loaded(object sender, EventArgs e)
+        {
+            // Define o texto da label com base se é prova ou trabalho
+            var label = (Label)sender;
+            var nota = (Notas)label.BindingContext;
+            label.Text = nota.Prova ? Translator.Instance["test"] : Translator.Instance["homeWork"];
+        }
+
+        // Método chamado quando o botão Fechar é clicado
+        private async void CloseButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync(); // Fecha a página modal
+        }
     }
 }
