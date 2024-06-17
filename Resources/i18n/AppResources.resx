@@ -294,6 +294,9 @@
   <data name="shareDiscipline" xml:space="preserve">
     <value>Compartilhar esta disciplina com outras contas?</value>
   </data>
+  <data name="Sigla" xml:space="preserve">
+    <value>Esta sigla já está em uso!</value>
+  </data>
   <data name="success" xml:space="preserve">
     <value>Sucesso</value>
   </data>

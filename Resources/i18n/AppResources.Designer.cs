@@ -592,6 +592,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Esta sigla já está em uso!.
+        /// </summary>
+        internal static string Sigla {
+            get {
+                return ResourceManager.GetString("Sigla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Sucesso.
         /// </summary>
         internal static string success {

@@ -25,7 +25,7 @@ public partial class DisciplinasPage : ContentPage
 	{
 		var user = UsuariosService.GetUsuarioLogado();
 
-        Disciplinas = _disciplinasService.GetMany(d => d.AlunoId == user.Id || d.Share); // Substitua 'alunoId' pelo ID do aluno atualmente logado
+        Disciplinas = _disciplinasService.GetMany(d => d.AlunoId == user.Id); // Substitua 'alunoId' pelo ID do aluno atualmente logado
         DisciplinasCollectionView.ItemsSource = Disciplinas;
 	}
 

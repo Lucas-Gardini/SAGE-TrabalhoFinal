@@ -9,8 +9,6 @@
     NavigationPage.HasNavigationBar="False">
     <Grid>
 
-
-
         <!--  Adicionando ScrollView ao redor da CollectionView  -->
         <ScrollView>
             <CollectionView

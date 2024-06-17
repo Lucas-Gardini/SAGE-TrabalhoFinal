@@ -8,7 +8,7 @@ namespace SAGE.Modules.Disciplinas
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        [Unique, NotNull]
+        [NotNull]
         public string Sigla { get; set; } = "";
 
         [MaxLength(100), NotNull]
@@ -16,9 +16,6 @@ namespace SAGE.Modules.Disciplinas
 
         [MaxLength(100), NotNull]
         public string Professor { get; set; } = "";
-
-        [NotNull]
-        public bool Share { get; set; }
 
         [NotNull]
         public int AlunoId { get; set; }

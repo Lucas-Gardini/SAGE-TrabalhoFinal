@@ -37,17 +37,10 @@ namespace SAGE.Pages
 
             var user = UsuariosService.GetUsuarioLogado();
 
-            // Desabilita a CheckBox CBShare se o usuário logado não for o dono da disciplina
-            if (Disciplina.AlunoId != user.Id)
-            {
-                CBShare.IsEnabled = false;
-            }
-
             // Preenche os campos de entrada com os dados da disciplina
             NomeEntry.Text = Disciplina.Nome;
             SiglaEntry.Text = Disciplina.Sigla;
             ProfessorEntry.Text = Disciplina.Professor;
-            CBShare.IsChecked = Disciplina.Share; // Define o estado da CheckBox
             BindingContext = this; // Define o contexto de dados da página como esta instância
             AoFechar = () => { }; // Inicializa o evento AoFechar
         }
@@ -61,7 +54,6 @@ namespace SAGE.Pages
             Disciplina.Nome = NomeEntry.Text;
             Disciplina.Sigla = SiglaEntry.Text.ToUpper();
             Disciplina.Professor = ProfessorEntry.Text;
-            Disciplina.Share = CBShare.IsChecked; // Define o valor de Share com o estado da CheckBox
             Disciplina.AlunoId = user.Id;
 
             // Verifica se os campos obrigatórios estão preenchidos
@@ -70,6 +62,13 @@ namespace SAGE.Pages
                 await DisplayAlert(Translator.Instance["error"], Translator.Instance["fillFieldsAlert"], "OK");
                 return;
             }
+
+			// Verifica se a sigla da disciplina já existe cadastrada pelo usuário logado
+			if (_genericService.GetMany(d => d.AlunoId == user.Id && d.Sigla == Disciplina.Sigla).Any(d => d.Id != Disciplina.Id))
+			{
+				await DisplayAlert(Translator.Instance["error"], Translator.Instance["Sigla"], "OK");
+				return;
+			}
 
             try
             {
