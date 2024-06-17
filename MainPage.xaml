@@ -19,13 +19,15 @@
             <Label
                 FontSize="24"
                 HorizontalOptions="Center"
+                FontFamily="PromptRegular"
                 Text="{extension:TranslateExtansion Key=welcome}"
                 TextColor="{DynamicResource TextColor}" />
 
             <Label
                 Margin="0,10,0,30"
-                FontSize="14"
+                FontSize="15"
                 HorizontalOptions="Center"
+                FontFamily="PromptRegular"
                 Text="{extension:TranslateExtansion Key=welcomeMsg}"
                 TextColor="{DynamicResource TextColor}" />
 
