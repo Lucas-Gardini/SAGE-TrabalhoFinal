@@ -6,6 +6,8 @@
     <Color x:Key="BackgroundColor">#e2e2e2</Color>
     <Color x:Key="TextColor">#000</Color>
     <Color x:Key="EntryBackgroundColor">#708090</Color>
+    <Color x:Key="ChangeThemeBtn">#cca844</Color>
+    <Color x:Key="ChangeLangBorder">#2d2d2d</Color>
     <Color x:Key="Primary">#14A44D</Color>
     <Color x:Key="PrimaryDark">#14A44D</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>

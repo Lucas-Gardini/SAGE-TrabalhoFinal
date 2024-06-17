@@ -25,8 +25,18 @@ namespace SAGE
         {
             InitializeComponent();
 
-            // Lê o arquivo de lembrar, caso exista e preenche o input de usuário
-            if (File.Exists(UsuarioCaminho))
+            ThemeManager.LoadCurrentTheme();
+
+            if (ThemeManager.SelectedTheme == nameof(Themes.DarkTheme))
+            {
+                ChangeThemeBtn.ImageSource = "moon.png";
+            }
+            else
+            {
+                ChangeThemeBtn.ImageSource = "sun.png";
+            }
+                // Lê o arquivo de lembrar, caso exista e preenche o input de usuário
+                if (File.Exists(UsuarioCaminho))
             {
                 RememberMeCheckBox.IsChecked = true;
                 UsernameEntry.Text = File.ReadAllText(UsuarioCaminho);
@@ -113,10 +123,12 @@ namespace SAGE
             if (ThemeManager.SelectedTheme == nameof(Themes.LightTheme))
             {
                 ThemeManager.SetTheme(nameof(Themes.DarkTheme));
+                ChangeThemeBtn.ImageSource = "moon.png";
             }
             else
             {
                 ThemeManager.SetTheme(nameof(Themes.LightTheme));
+                ChangeThemeBtn.ImageSource = "sun.png";
             }
         }
 
@@ -151,6 +163,22 @@ namespace SAGE
         private async void OnCreateNewUser(object sender, EventArgs e)
         {
            await Navigation.PushAsync(new CriarEditarUsuariosPage());
+        }
+
+        private async void TrocarSenhaButton_Clicked(object sender, EventArgs e)
+        {
+            var senha = await DisplayAlert(Translator.Instance["changePass"], Translator.Instance["changePassAsk"], Translator.Instance["yes"], Translator.Instance[key: "no"]);
+            if (senha)
+            {
+                var novaSenha = await DisplayPromptAsync(Translator.Instance["changePass"], Translator.Instance["changePassNew"], "OK", Translator.Instance["cancel"], Translator.Instance["newPass"], 16, Keyboard.Default, "");
+
+                Usuario usuario = UsuariosService.GetUsuarioLogado();
+                usuario.Senha = novaSenha;
+
+                _usuariosService.UpdateOne(usuario);
+
+                await DisplayAlert(Translator.Instance["passChanged"], Translator.Instance["changePassSuccess"], "OK");
+            }
         }
     }
 }

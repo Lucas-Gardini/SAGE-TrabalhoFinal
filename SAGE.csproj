@@ -56,7 +56,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\moon.png" />
 	  <None Remove="Resources\Images\refresh.png" />
+	  <None Remove="Resources\Images\sun.png" />
 	</ItemGroup>
 
 	<!--<ItemGroup>

@@ -7,6 +7,8 @@
     <Color x:Key="BackgroundColor">#212225</Color>
     <Color x:Key="TextColor">#fff</Color>
     <Color x:Key="EntryBackgroundColor">#43454b</Color>
+    <Color x:Key="ChangeThemeBtn">#363636</Color>
+    <Color x:Key="ChangeLangBorder">#696969</Color>
     <Color x:Key="Primary">#14A44D</Color>
     <Color x:Key="PrimaryDark">#14A44D</Color>
     <Color x:Key="PrimaryDarkText">#231324</Color>

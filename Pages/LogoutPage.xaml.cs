@@ -1,3 +1,5 @@
+using SAGE.Modules.Usuarios;
+
 namespace SAGE.Pages;
 
 public partial class LogoutPage : ContentPage
@@ -7,10 +9,16 @@ public partial class LogoutPage : ContentPage
 		InitializeComponent();
 		Logout();
     }
+    private async void Logout()
+    {
+        // Limpar os dados do usuário logado
+        UsuariosService.Logout();
 
-	private void Logout()
-	{
-        // Fecha a aplicação
-        Environment.Exit(0);
+        // Redirecionar para a página de login
+        await Navigation.PushAsync(new MainPage());
+
+        // Se quiser remover todas as páginas da pilha de navegação e deixar apenas a página de login:
+        Application.Current.MainPage = new NavigationPage(new MainPage());
     }
+
 }

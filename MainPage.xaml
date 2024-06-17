@@ -63,25 +63,27 @@
                 ReturnType="Done"
                 TextColor="White" />
 
-            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
-                <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />
-                <Label
-                    Text="{extension:TranslateExtansion Key=rememberMe}"
-                    TextColor="{DynamicResource TextColor}"
-                    VerticalOptions="Center" />
-            </HorizontalStackLayout>
+            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center" Margin="0,10,0,0">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                    <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />
+                    <Label
+                        Text="{extension:TranslateExtansion Key=rememberMe}"
+                        TextColor="{DynamicResource TextColor}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
-                <Label
-                    Text="{extension:TranslateExtansion Key=dontHaveAnAccount}"
-                    TextColor="{DynamicResource TextColor}"
-                    TextDecorations="Underline"
-                    VerticalOptions="Center">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnCreateNewUser" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand"  Grid.Column="2">
+                    <Label
+                        Text="{extension:TranslateExtansion Key=dontHaveAnAccount}"
+                        TextColor="{DynamicResource TextColor}"
+                        TextDecorations="Underline"
+                        VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCreateNewUser" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </Grid>
 
             <HorizontalStackLayout Margin="0,5,0,10">
                 <Button
@@ -114,16 +116,16 @@
                 TextColor="White"
                 WidthRequest="210" />
 
-            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center">
+            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center" Margin="0,50,0,0">
                 <Button
                     x:Name="ChangeThemeBtn"
                     Margin="0,35,5,0"
-                    BackgroundColor="Transparent"
-                    BorderColor="{DynamicResource PlaceholderColor}"
-                    BorderWidth="1"
                     Clicked="ChangeThemeBtn_Clicked"
-                    CornerRadius="20"
-                    Text="{extension:TranslateExtansion Key=changeTheme}"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    CornerRadius="70"
+                    BackgroundColor="{DynamicResource ChangeThemeBtn}"
+                    ImageSource="sun.png"
                     TextColor="{DynamicResource TextColor}" />
 
                 <Button
@@ -131,7 +133,7 @@
                     Grid.Column="2"
                     Margin="5,35,0,0"
                     BackgroundColor="Transparent"
-                    BorderColor="{DynamicResource PlaceholderColor}"
+                    BorderColor="{DynamicResource ChangeLangBorder}"
                     BorderWidth="1"
                     Clicked="ChangeLangBtn_Clicked"
                     CornerRadius="20"

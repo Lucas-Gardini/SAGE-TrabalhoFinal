@@ -34,6 +34,8 @@ public partial class ConfigPage : ContentPage
             Translator.Instance.OnPropertyChanged();
             MessagingCenter.Send(this, "LanguageChanged");
         }
+
+        Translator.Instance.SaveCurrentCulture(Translator.Instance.Culture.Name);
     }
 
     private void RbEn_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -44,6 +46,8 @@ public partial class ConfigPage : ContentPage
             Translator.Instance.OnPropertyChanged();
             MessagingCenter.Send(this, "LanguageChanged");
         }
+
+        Translator.Instance.SaveCurrentCulture(Translator.Instance.Culture.Name);
     }
 
     private void ChangeTheme_Toggled(object sender, ToggledEventArgs e)
