@@ -85,14 +85,6 @@
                 </HorizontalStackLayout>
             </Grid>
 
-            <HorizontalStackLayout Margin="0,5,0,10">
-                <Button
-                    x:Name="CreateNewAccountBtn"
-                    BackgroundColor="Transparent"
-                    Text="{extension:TranslateExtansion Key=noAccount}"
-                    TextColor="CornflowerBlue" />
-            </HorizontalStackLayout>
-
             <Button
                 x:Name="AuthButton"
                 Margin="0,10,0,10"
@@ -104,7 +96,8 @@
                 HorizontalOptions="Center"
                 Text="{extension:TranslateExtansion Key=enter}"
                 TextColor="White"
-                WidthRequest="210" />
+                WidthRequest="210"
+                HeightRequest="45" />
 
             <Button
                 x:Name="ClearDBButton"
@@ -115,7 +108,8 @@
                 HorizontalOptions="Center"
                 Text="{extension:TranslateExtansion Key=clearDB}"
                 TextColor="White"
-                WidthRequest="210" />
+                WidthRequest="210"
+                HeightRequest="45"/>
 
             <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center" Margin="0,50,0,0">
                 <Button
