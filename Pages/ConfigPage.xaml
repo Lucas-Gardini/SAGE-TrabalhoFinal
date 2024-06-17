@@ -10,8 +10,9 @@
     <ScrollView>
         <VerticalStackLayout Margin="0,0,0,75">
             <Label
-                Margin="0,30,0,50"
+                Margin="0,30,0,30"
                 FontSize="Large"
+                FontFamily="PromptRegular"
                 HorizontalOptions="Center"
                 Text="{extension:TranslateExtansion Key=config}"
                 TextColor="{DynamicResource TextColor}"

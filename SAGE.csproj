@@ -56,6 +56,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiFont Remove="Resources\Fonts\OFL.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\OFL.txt" />
+	  <None Remove="Resources\Fonts\Prompt-Regular.ttf" />
 	  <None Remove="Resources\Images\moon.png" />
 	  <None Remove="Resources\Images\refresh.png" />
 	  <None Remove="Resources\Images\sun.png" />
