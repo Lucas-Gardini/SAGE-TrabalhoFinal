@@ -166,7 +166,7 @@
     <value>Create/Edit Discipline</value>
   </data>
   <data name="createAndEditUser" xml:space="preserve">
-    <value>Create/Edit User</value>
+    <value>Create User</value>
   </data>
   <data name="currentLang" xml:space="preserve">
     <value>en-US</value>

@@ -205,7 +205,7 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Criar/Editar Usuário.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Criar Usuário.
         /// </summary>
         internal static string createAndEditUser {
             get {
