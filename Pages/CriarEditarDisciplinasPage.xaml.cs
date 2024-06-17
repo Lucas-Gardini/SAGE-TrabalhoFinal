@@ -29,6 +29,7 @@ public partial class CriarEditarDisciplinasPage : ContentPage
 		Disciplina = _genericService.GetOne(d => d.Id == id)!; // Obtém a disciplina pelo ID
 		NomeEntry.Text = Disciplina.Nome;
 		SiglaEntry.Text = Disciplina.Sigla;
+		ProfessorEntry.Text = Disciplina.Professor;
 		BindingContext = this;
 		AoFechar = () => { };
 	}

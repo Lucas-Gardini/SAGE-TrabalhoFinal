@@ -135,8 +135,20 @@
   <data name="changeLang" xml:space="preserve">
     <value>Change language</value>
   </data>
+  <data name="changePassAsk" xml:space="preserve">
+    <value>Want to change your password?</value>
+  </data>
+  <data name="changePassNew" xml:space="preserve">
+    <value>Type your new password</value>
+  </data>
+  <data name="changePassSuccess" xml:space="preserve">
+    <value>Password changed successfully</value>
+  </data>
   <data name="changeTheme" xml:space="preserve">
     <value>Change Theme</value>
+  </data>
+  <data name="changPass" xml:space="preserve">
+    <value>Change Password</value>
   </data>
   <data name="clearDB" xml:space="preserve">
     <value>Clear Database</value>
@@ -216,6 +228,9 @@
   <data name="nameDisc" xml:space="preserve">
     <value>Name:</value>
   </data>
+  <data name="newPass" xml:space="preserve">
+    <value>New Password</value>
+  </data>
   <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
@@ -233,6 +248,9 @@
   </data>
   <data name="notInfoUser" xml:space="preserve">
     <value>User not informed</value>
+  </data>
+  <data name="passChanged" xml:space="preserve">
+    <value>Password Changed</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>

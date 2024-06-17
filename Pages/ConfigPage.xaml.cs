@@ -1,4 +1,5 @@
 using SAGE.Extension;
+using SAGE.Modules.Usuarios;
 using System.Globalization;
 using Themes = SAGE.Resources.Styles.Themes;
 
@@ -6,7 +7,9 @@ namespace SAGE.Pages;
 
 public partial class ConfigPage : ContentPage
 {
-	public ConfigPage()
+    UsuariosService _usuariosService = new UsuariosService();
+
+    public ConfigPage()
 	{
 		InitializeComponent();
 
@@ -52,6 +55,22 @@ public partial class ConfigPage : ContentPage
         else
         {
             ThemeManager.SetTheme(nameof(Themes.LightTheme));
+        }
+    }
+
+    private async void TrocarSenhaButton_Clicked(object sender, EventArgs e)
+    {
+        var senha = await DisplayAlert(Translator.Instance["changePass"], Translator.Instance["changePassAsk"], Translator.Instance["yes"], Translator.Instance[key: "no"]);
+        if (senha)
+        {
+            var novaSenha = await DisplayPromptAsync(Translator.Instance["changePass"], Translator.Instance["changePassNew"], "OK", Translator.Instance["cancel"], Translator.Instance["newPass"], 16, Keyboard.Default, "");
+
+            Usuario usuario = UsuariosService.GetUsuarioLogado();
+            usuario.Senha = novaSenha;
+
+            _usuariosService.UpdateOne(usuario);
+
+            await DisplayAlert(Translator.Instance["passChanged"], Translator.Instance["changePassSuccess"], "OK");
         }
     }
 }

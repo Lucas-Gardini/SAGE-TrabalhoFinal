@@ -115,11 +115,47 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Deseja trocar a senha?.
+        /// </summary>
+        internal static string changePassAsk {
+            get {
+                return ResourceManager.GetString("changePassAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Digite a nova senha.
+        /// </summary>
+        internal static string changePassNew {
+            get {
+                return ResourceManager.GetString("changePassNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha trocada com sucesso!.
+        /// </summary>
+        internal static string changePassSuccess {
+            get {
+                return ResourceManager.GetString("changePassSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Trocar tema.
         /// </summary>
         internal static string changeTheme {
             get {
                 return ResourceManager.GetString("changeTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Trocar Senha.
+        /// </summary>
+        internal static string changPass {
+            get {
+                return ResourceManager.GetString("changPass", resourceCulture);
             }
         }
         
@@ -358,6 +394,15 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nova Senha.
+        /// </summary>
+        internal static string newPass {
+            get {
+                return ResourceManager.GetString("newPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Não.
         /// </summary>
         internal static string no {
@@ -417,6 +462,15 @@ namespace SAGE.Resources.i18n {
         internal static string notInfoUser {
             get {
                 return ResourceManager.GetString("notInfoUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha Trocada.
+        /// </summary>
+        internal static string passChanged {
+            get {
+                return ResourceManager.GetString("passChanged", resourceCulture);
             }
         }
         

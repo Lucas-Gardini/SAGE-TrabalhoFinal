@@ -61,6 +61,8 @@
                     TextColor="{DynamicResource TextColor}" />
             </VerticalStackLayout>
 
+            <Button Margin="20" BackgroundColor="{DynamicResource Secondary}" x:Name="TrocarSenhaButton" Text="{extension:TranslateExtansion Key=changPass}" Clicked="TrocarSenhaButton_Clicked" HorizontalOptions="Start"/>
+
             <VerticalStackLayout VerticalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>

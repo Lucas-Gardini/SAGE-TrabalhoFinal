@@ -25,6 +25,12 @@ namespace SAGE.Modules.Usuarios
                 entity.Identificador = GerarNovoIdentificador();
                 entity.Senha = BCrypt.Net.BCrypt.HashPassword(entity.Senha);
             };
+
+            base.BeforeUpdate = (entity) =>
+            {
+                if (!entity.Senha.StartsWith("$2a$"))
+                    entity.Senha = BCrypt.Net.BCrypt.HashPassword(entity.Senha);
+            };
         }
 
         /// <summary>
