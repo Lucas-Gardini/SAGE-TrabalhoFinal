@@ -709,7 +709,7 @@ namespace SAGE.Resources.i18n {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a SAGE - Sistema Acadêmico de Gestão Educacional.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Sistema Acadêmico de Gestão Educacional.
         /// </summary>
         internal static string welcomeMsg {
             get {

@@ -331,7 +331,7 @@
     <value>Welcome</value>
   </data>
   <data name="welcomeMsg" xml:space="preserve">
-    <value>SAGE - Sistema Acadêmico de Gestão Educacional</value>
+    <value>Academic Educational Management System</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Yes</value>

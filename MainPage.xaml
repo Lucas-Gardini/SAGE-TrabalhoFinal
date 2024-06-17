@@ -17,17 +17,18 @@
             VerticalOptions="CenterAndExpand">
 
             <Label
+                FontFamily="PromptRegular"
                 FontSize="24"
                 HorizontalOptions="Center"
-                FontFamily="PromptRegular"
-                Text="{extension:TranslateExtansion Key=welcome}"
+                Text="SAGE"
                 TextColor="{DynamicResource TextColor}" />
 
             <Label
                 Margin="0,10,0,30"
+                FontFamily="PromptRegular"
                 FontSize="15"
                 HorizontalOptions="Center"
-                FontFamily="PromptRegular"
+                HorizontalTextAlignment="Center"
                 Text="{extension:TranslateExtansion Key=welcomeMsg}"
                 TextColor="{DynamicResource TextColor}" />
 
@@ -65,7 +66,10 @@
                 ReturnType="Done"
                 TextColor="White" />
 
-            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center" Margin="0,10,0,0">
+            <Grid
+                Margin="0,10,0,0"
+                ColumnDefinitions="Auto, *, Auto"
+                VerticalOptions="Center">
                 <HorizontalStackLayout HorizontalOptions="FillAndExpand">
                     <CheckBox x:Name="RememberMeCheckBox" VerticalOptions="Center" />
                     <Label
@@ -74,7 +78,7 @@
                         VerticalOptions="Center" />
                 </HorizontalStackLayout>
 
-                <HorizontalStackLayout HorizontalOptions="FillAndExpand"  Grid.Column="2">
+                <HorizontalStackLayout Grid.Column="2" HorizontalOptions="FillAndExpand">
                     <Label
                         Text="{extension:TranslateExtansion Key=dontHaveAnAccount}"
                         TextColor="{DynamicResource TextColor}"
@@ -90,41 +94,44 @@
             <Button
                 x:Name="AuthButton"
                 Margin="0,60,0,10"
-                IsEnabled="True"
+                BackgroundColor="{DynamicResource Primary}"
                 Clicked="AuthButton_Clicked"
                 CornerRadius="20"
                 FontSize="14"
-                BackgroundColor="{DynamicResource Primary}"
+                HeightRequest="45"
                 HorizontalOptions="Center"
+                IsEnabled="True"
                 Text="{extension:TranslateExtansion Key=enter}"
                 TextColor="White"
-                WidthRequest="210"
-                HeightRequest="45" />
+                WidthRequest="210" />
 
             <Button
                 x:Name="ClearDBButton"
-                BackgroundColor="red"
                 Margin="0,5,0,10"
+                BackgroundColor="red"
                 Clicked="ClearDBButton_Clicked"
                 CornerRadius="20"
                 FontSize="14"
+                HeightRequest="45"
                 HorizontalOptions="Center"
                 Text="{extension:TranslateExtansion Key=clearDB}"
                 TextColor="White"
-                WidthRequest="210"
-                HeightRequest="45"/>
+                WidthRequest="210" />
 
-            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center" Margin="0,40,0,0">
+            <Grid
+                Margin="0,40,0,0"
+                ColumnDefinitions="Auto, *, Auto"
+                VerticalOptions="Center">
                 <Button
                     x:Name="ChangeThemeBtn"
                     Margin="0,35,5,0"
-                    Clicked="ChangeThemeBtn_Clicked"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    CornerRadius="70"
                     BackgroundColor="{DynamicResource ChangeThemeBtn}"
+                    Clicked="ChangeThemeBtn_Clicked"
+                    CornerRadius="70"
+                    HeightRequest="50"
                     ImageSource="sun.png"
-                    TextColor="{DynamicResource TextColor}" />
+                    TextColor="{DynamicResource TextColor}"
+                    WidthRequest="50" />
 
                 <Button
                     x:Name="ChangeLangBtn"
